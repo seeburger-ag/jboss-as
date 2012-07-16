@@ -26,11 +26,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.jboss.as</groupId>
+        <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.Final</version>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
     </parent>
-    <groupId>org.jboss.as</groupId>
+    <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-connector</artifactId>
     <name>JBoss Application Server: Connector Subsystem</name>
     <build>
@@ -58,27 +58,27 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-server</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-ee</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-naming</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-transactions</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-threads</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-security</artifactId>
         </dependency>
         <dependency>
@@ -148,7 +148,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-subsystem-test</artifactId>
             <scope>test</scope>
         </dependency>

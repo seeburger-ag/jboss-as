@@ -27,9 +27,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
+        <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.Final</version>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
     </parent>
 
     <artifactId>jboss-as-web</artifactId>
@@ -80,22 +80,22 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-server</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-clustering-web-spi</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-ee</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-security</artifactId>
         </dependency>
 
@@ -154,7 +154,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-clustering-web-infinispan</artifactId>
             <scope>test</scope>
         </dependency>
@@ -185,7 +185,7 @@
 			<scope>test</scope>
 		</dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-subsystem-test</artifactId>
             <scope>test</scope>
          </dependency>

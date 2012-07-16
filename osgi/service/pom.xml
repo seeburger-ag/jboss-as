@@ -34,31 +34,31 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
+        <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-osgi</artifactId>
-        <version>7.1.1.Final</version>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.jboss.as</groupId>
+    <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-osgi-service</artifactId>
 
     <name>JBoss Application Server: OSGi Subsystem</name>
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-ee</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-jmx</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-naming</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-server</artifactId>
         </dependency>
         <dependency>
@@ -112,7 +112,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-subsystem-test</artifactId>
             <scope>test</scope>
         </dependency>

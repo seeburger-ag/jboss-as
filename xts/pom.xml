@@ -27,12 +27,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
+        <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.Final</version>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.jboss.as</groupId>
+    <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-xts</artifactId>
 
     <name>JBoss Application Server: XTS Subsystem</name>
@@ -53,23 +53,23 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-ee</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-server</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-transactions</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-webservices-server-integration</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-security</artifactId>
         </dependency>
         <dependency>
@@ -93,7 +93,7 @@
             <artifactId>jbossws-spi</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-subsystem-test</artifactId>
             <scope>test</scope>
         </dependency>

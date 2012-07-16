@@ -27,14 +27,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
+        <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.Final</version>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.jboss.as</groupId>
+    <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-ee</artifactId>
-    <version>7.1.1.Final</version>
+    <version>7.1.1.SEE1-SNAPSHOT</version>
 
     <name>JBoss Application Server: EE</name>
 
@@ -98,7 +98,7 @@
             <artifactId>jboss-annotations-api_1.1_spec</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-server</artifactId>
         </dependency>
         <dependency>
@@ -106,7 +106,7 @@
             <artifactId>jboss-invocation</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-naming</artifactId>
         </dependency>
         <dependency>
@@ -119,7 +119,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-subsystem-test</artifactId>
             <scope>test</scope>
         </dependency>

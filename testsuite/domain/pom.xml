@@ -28,8 +28,8 @@
 
     <parent>
         <artifactId>jboss-as-testsuite</artifactId>
-        <groupId>org.jboss.as</groupId>
-        <version>7.1.1.Final</version>
+        <groupId>com.seeburger.as</groupId>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
     </parent>
 
     <artifactId>jboss-as-testsuite-integration-domain</artifactId>

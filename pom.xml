@@ -29,9 +29,9 @@
       <version>8</version>
     </parent>
 
-    <groupId>org.jboss.as</groupId>
+    <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-parent</artifactId>
-    <version>7.1.1.Final</version>
+    <version>7.1.1.SEE1-SNAPSHOT</version>
 
     <name>JBoss Application Server: Parent Aggregator</name>
     <description>JBoss Application Server: Parent Aggregator</description>
@@ -381,7 +381,7 @@
                     </configuration>
                     <dependencies>
                         <dependency>
-                            <groupId>org.jboss.as</groupId>
+                            <groupId>com.seeburger.as</groupId>
                             <artifactId>jboss-as-build-config</artifactId>
                             <version>${project.version}</version>
                         </dependency>
@@ -680,7 +680,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-build-config</artifactId>
         </dependency>
     </dependencies>
@@ -691,436 +691,436 @@
             <!-- Modules in this project -->
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-appclient</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-arquillian-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-arquillian-container-embedded</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-arquillian-container-managed</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-arquillian-container-managed-clustering</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-arquillian-container-remote</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-arquillian-processor-jsfunit</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-arquillian-protocol-jmx</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-arquillian-testenricher-msc</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-build</artifactId>
                 <type>pom</type>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-build-config</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-ejb3-infinispan</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-impl</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-infinispan</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-jgroups</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-registry</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-singleton</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-web-infinispan</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-clustering-web-spi</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-cmp</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-configadmin</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-config-assembly</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-connector</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-controller</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-controller-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-deployment-repository</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-deployment-scanner</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-domain-http-error-context</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-domain-http-interface</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-domain-management</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-cli</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-client-all</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-ee</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-ee-deployment</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-ejb3</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-ejb-client-bom</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-embedded</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-host-controller</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jacorb</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jaxr</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jaxrs</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jdr</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jmx</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jms-client-bom</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jsr77</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-logging</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-managed-beans</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-management-client-content</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-mail</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-messaging</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-modcluster</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-naming</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-network</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-pojo</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-osgi-configadmin</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-osgi-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-platform-mbean</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-process-controller</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-protocol</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-remoting</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-security</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-sar</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-server</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-subsystem-test</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-sos</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-threads</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-transactions</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-web</artifactId>
                 <version>${project.version}</version>
                 <exclusions>
@@ -1132,37 +1132,37 @@
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-webservices-server-integration</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-weld</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-xts</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-testsuite-protocol-base</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-testsuite-protocol-modules</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-testsuite-shared</artifactId>
                 <version>${project.version}</version>
                 <scope>test</scope>
@@ -3680,37 +3680,37 @@
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jpa</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jpa-spi</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jpa-util</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jpa-hibernate3</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jpa-hibernate4</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.as</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jboss-as-jpa-openjpa</artifactId>
                 <version>${project.version}</version>
             </dependency>

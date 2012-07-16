@@ -26,9 +26,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
+        <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-arquillian</artifactId>
-        <version>7.1.1.Final</version>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
     </parent>
 
     <artifactId>jboss-as-arquillian-testng-integration</artifactId>
@@ -42,13 +42,13 @@
     <dependencies>
     
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-spec-api</artifactId>
             <type>pom</type>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-          <groupId>org.jboss.as</groupId>
+          <groupId>com.seeburger.as</groupId>
           <artifactId>jboss-as-arquillian-container-managed</artifactId>
           <scope>test</scope>
         </dependency>

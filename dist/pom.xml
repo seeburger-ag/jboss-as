@@ -28,21 +28,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
+        <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.Final</version>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.jboss.as</groupId>
+    <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-dist</artifactId>
-    <version>7.1.1.Final</version>
+    <version>7.1.1.SEE1-SNAPSHOT</version>
 
     <name>JBoss Application Server: Distribution</name>
     <packaging>pom</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-build</artifactId>
             <type>pom</type>
             <scope>provided</scope>

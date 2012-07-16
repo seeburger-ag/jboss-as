@@ -27,14 +27,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
+        <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.Final</version>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.jboss.as</groupId>
+    <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-security</artifactId>
-    <version>7.1.1.Final</version>
+    <version>7.1.1.SEE1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JBoss Application Server: Security Subsystem</name>
@@ -88,27 +88,27 @@
         </dependency>
 
         <dependency>
-	        <groupId>org.jboss.as</groupId>
+	        <groupId>com.seeburger.as</groupId>
 	        <artifactId>jboss-as-domain-management</artifactId>
         </dependency>
         
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-server</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-naming</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-clustering-infinispan</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-transactions</artifactId>
         </dependency>
 
@@ -157,7 +157,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-subsystem-test</artifactId>
             <scope>test</scope>
         </dependency>

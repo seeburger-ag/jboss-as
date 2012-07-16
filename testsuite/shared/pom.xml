@@ -5,16 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.as</groupId>
+        <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.Final</version>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.jboss.as</groupId>
+    <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-testsuite-shared</artifactId>
     <packaging>jar</packaging>
-    <version>7.1.1.Final</version>
+    <version>7.1.1.SEE1-SNAPSHOT</version>
 
     <name>JBoss Application Server Test Suite: Shared</name>
     
@@ -58,7 +58,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-build</artifactId>
             <type>pom</type>
             <exclusions>
@@ -77,7 +77,7 @@
         -->
         <!-- org.jboss.as.arquillian.container.* -->
         <dependency>
-            <groupId>org.jboss.as</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-as-arquillian-container-managed</artifactId>
             <version>${version.arquillian_as7}</version>
         </dependency>
