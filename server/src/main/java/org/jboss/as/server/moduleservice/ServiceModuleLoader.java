@@ -44,7 +44,6 @@ import org.jboss.msc.service.ServiceTarget;
 import org.jboss.msc.service.StartContext;
 import org.jboss.msc.service.StartException;
 import org.jboss.msc.service.StopContext;
-import org.jboss.msc.service.ValueService;
 
 /**
  * {@link ModuleLoader} that loads module definitions from msc services. Module specs are looked up in msc services that
@@ -135,8 +134,10 @@ public class ServiceModuleLoader extends ModuleLoader implements Service<Service
                 log.tracef("waiting for: %s", identifier);
                 if (latch.await(2000, TimeUnit.MILLISECONDS) == false)
                     throw new ModuleLoadException("Timeout waiting for module service: " + identifier);
-            } catch (Exception e) {
-                throw new ModuleLoadException(e);
+//            } catch (Exception e) {
+//                throw new ModuleLoadException(e);
+            } catch (InterruptedException e) {
+               // ignore
             }
             return moduleSpec;
         }
