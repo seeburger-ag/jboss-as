@@ -64,7 +64,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.msc</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-msc</artifactId>
         </dependency>
         <dependency>

@@ -227,7 +227,7 @@
         <module-def name="org.jboss.modules"/>
 
         <module-def name="org.jboss.msc">
-            <maven-resource group="org.jboss.msc" artifact="jboss-msc"/>
+            <maven-resource group="com.seeburger.as" artifact="jboss-msc"/>
         </module-def>
 
         <module-def name="org.jboss.logging">
