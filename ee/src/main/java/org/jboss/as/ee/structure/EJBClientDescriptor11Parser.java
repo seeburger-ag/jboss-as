@@ -44,7 +44,7 @@ import static javax.xml.stream.XMLStreamConstants.*;
  *
  * @author Jaikiran Pai
  */
-class EJBClientDescriptor11Parser implements XMLElementReader<EJBClientDescriptorMetaData> {
+public class EJBClientDescriptor11Parser implements XMLElementReader<EJBClientDescriptorMetaData> {
 
     public static final String NAMESPACE_1_1 = "urn:jboss:ejb-client:1.1";
 

@@ -57,7 +57,7 @@ import org.jboss.staxmapper.XMLExtendedStreamReader;
  *
  * @author Jaikiran Pai
  */
-class EJBClientDescriptor10Parser implements XMLElementReader<EJBClientDescriptorMetaData> {
+public class EJBClientDescriptor10Parser implements XMLElementReader<EJBClientDescriptorMetaData> {
 
     public static final String NAMESPACE_1_0 = "urn:jboss:ejb-client:1.0";
 
