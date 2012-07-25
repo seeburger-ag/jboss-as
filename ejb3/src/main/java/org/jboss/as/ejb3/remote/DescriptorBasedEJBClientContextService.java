@@ -155,7 +155,7 @@ public class DescriptorBasedEJBClientContextService implements Service<EJBClient
      * A {@link ReconnectHandler} which attempts a reconnection to a outbound connection using the
      * {@link AbstractOutboundConnectionService}
      */
-    private class OutboundConnectionReconnectHandler implements ReconnectHandler {
+    public static class OutboundConnectionReconnectHandler implements ReconnectHandler {
 
         private final ServiceRegistry serviceRegistry;
         private final ServiceName outboundConnectionServiceName;
