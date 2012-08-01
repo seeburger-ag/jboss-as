@@ -23,6 +23,7 @@
 package org.jboss.as.server;
 
 import java.io.File;
+import java.lang.management.ManagementFactory;
 import java.security.AccessController;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +33,13 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import javax.management.InstanceNotFoundException;
+import javax.management.MBeanException;
+import javax.management.MBeanServer;
+import javax.management.MalformedObjectNameException;
+import javax.management.ObjectName;
+import javax.management.ReflectionException;
 
 import org.jboss.as.controller.AbstractControllerService;
 import org.jboss.as.controller.BootContext;
@@ -265,6 +273,7 @@ public final class ServerService extends AbstractControllerService {
                 // Boot but don't rollback on runtime failures
                 ok = boot(extensibleConfigurationPersister.load(), false);
                 if (ok) {
+                    notifyServiceContainer();
                     finishBoot();
                 }
             } finally {
@@ -283,6 +292,11 @@ public final class ServerService extends AbstractControllerService {
             ServerLogger.ROOT_LOGGER.unsuccessfulBoot();
             System.exit(1);
         }
+    }
+
+    private void notifyServiceContainer() throws Exception {
+        MBeanServer server = ManagementFactory.getPlatformMBeanServer();
+        server.invoke(new ObjectName("jboss.msc:type=container,name=jboss-as"), "bootCompleted", new Object[]{}, new String[]{});
     }
 
     protected boolean boot(List<ModelNode> bootOperations, boolean rollbackOnRuntimeFailure) throws ConfigurationPersistenceException {
