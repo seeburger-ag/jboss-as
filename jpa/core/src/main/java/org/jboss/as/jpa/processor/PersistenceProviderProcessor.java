@@ -134,8 +134,9 @@ public class PersistenceProviderProcessor implements DeploymentUnitProcessor {
         final DeploymentUnit topDeploymentUnit = DeploymentUtils.getTopDeploymentUnit(deploymentUnit);
         final Module toplevelModule = topDeploymentUnit.getAttachment(Attachments.MODULE);
         Set<ClassLoader> deploymentClassLoaders = new HashSet<ClassLoader>();
-
-        deploymentClassLoaders.add(toplevelModule.getClassLoader());
+        if( toplevelModule != null ){
+            deploymentClassLoaders.add(toplevelModule.getClassLoader());
+        }
         final List<DeploymentUnit> subDeployments = topDeploymentUnit.getAttachmentList(Attachments.SUB_DEPLOYMENTS);
         for (DeploymentUnit subDeploymentUnit: subDeployments) {
             final Module subDeploymentModule = subDeploymentUnit.getAttachment(Attachments.MODULE);
