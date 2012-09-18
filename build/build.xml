@@ -1215,7 +1215,7 @@
         </bundle-def>
 
         <bundle-def name="org.jboss.as.osgi.configadmin">
-            <maven-bundle group="org.jboss.as" artifact="jboss-as-osgi-configadmin"/>
+            <maven-bundle group="com.seeburger.as" artifact="jboss-as-osgi-configadmin"/>
         </bundle-def>
 
         <bundle-def name="javax.servlet.api" slot="v25">
