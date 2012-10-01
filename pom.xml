@@ -4314,7 +4314,7 @@
             </dependency>
 
             <dependency>
-                <groupId>com.seeburger.as</groupId>
+                <groupId>com.seeburger.modules</groupId>
                 <artifactId>jboss-modules</artifactId>
                 <version>${version.org.jboss.modules.jboss-modules}</version>
             </dependency>
