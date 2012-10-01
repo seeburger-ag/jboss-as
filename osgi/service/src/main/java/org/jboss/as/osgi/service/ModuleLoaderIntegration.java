@@ -48,12 +48,10 @@ import org.jboss.osgi.framework.Services;
 import org.jboss.osgi.resolver.XModule;
 import org.jboss.osgi.resolver.XModuleIdentity;
 import org.jboss.osgi.spi.NotImplementedException;
-import org.osgi.framework.Bundle;
 
 import static org.jboss.as.osgi.OSGiLogger.ROOT_LOGGER;
 import static org.jboss.as.osgi.OSGiMessages.MESSAGES;
 import static org.jboss.as.server.Services.JBOSS_SERVICE_MODULE_LOADER;
-import static org.jboss.as.server.moduleservice.ServiceModuleLoader.MODULE_PREFIX;
 import static org.jboss.as.server.moduleservice.ServiceModuleLoader.MODULE_SERVICE_PREFIX;
 import static org.jboss.as.server.moduleservice.ServiceModuleLoader.MODULE_SPEC_SERVICE_PREFIX;
 
@@ -117,21 +115,7 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
         ROOT_LOGGER.debugf("Add module spec to loader: %s", identifier);
 
         ServiceName moduleSpecName = ServiceModuleLoader.moduleSpecServiceName(identifier);
-        ServiceBuilder<ModuleSpec> builder = serviceTarget.addService(moduleSpecName, new ValueService<ModuleSpec>(new ImmediateValue<ModuleSpec>(moduleSpec)));
-
-        /**
-         * SEEBURGER AG special: to be compatible with future jbosgi versions we register an alias
-         * with the bundle location prepended with "deployment."
-         */
-        ServiceController<?> moduleSpecAliasController = serviceContainer.getService(getSeeburgerAliasServiceName(identifier));
-        if( null != moduleSpecAliasController){
-            String moduleSpecAlias = (String)moduleSpecAliasController.getValue();
-            System.out.println("--------------------- found alias " + moduleSpecAlias + " for module identifier " + identifier.toString());
-            ModuleIdentifier alias = ModuleIdentifier.create(moduleSpecAlias);
-            ServiceName aliasModuleSpecName = ServiceModuleLoader.moduleSpecServiceName(alias);
-            builder.addAliases(aliasModuleSpecName);
-        }
-        builder.install();
+        serviceTarget.addService(moduleSpecName, new ValueService<ModuleSpec>(new ImmediateValue<ModuleSpec>(moduleSpec))).install();
     }
 
     /**
@@ -191,21 +175,6 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
         ModuleIdentifier identifier = ModuleIdentifier.create(name, slot);
         resModule.addAttachment(ModuleIdentifier.class, identifier);
 
-        // transport the name of the jar into a service, so it can be used as an alias
-        // for the jboss.module.spec.service of this module
-        Bundle bundle = resModule.getAttachment(Bundle.class);
-        if( bundle != null ){
-            ServiceName seeburgerAliasServiceName = getSeeburgerAliasServiceName(identifier);
-            if( null == serviceContainer.getService(seeburgerAliasServiceName)){
-                String moduleSpecAlias = MODULE_PREFIX + bundle.getLocation();
-                System.out.println("-------------------- added " + seeburgerAliasServiceName.toString() + " with content "  + moduleSpecAlias);
-                serviceTarget.addService(seeburgerAliasServiceName,
-                                         new ValueService<String>(new ImmediateValue<String>(moduleSpecAlias)))
-                             .install();
-            }
-
-        }
-
         return identifier;
     }
 
@@ -228,11 +197,6 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
     @Override
     public void setAndRelinkDependencies(Module module, List<DependencySpec> dependencies) throws ModuleLoadException {
         throw new NotImplementedException();
-    }
-
-
-    private ServiceName getSeeburgerAliasServiceName(ModuleIdentifier identifier){
-        return ServiceName.of("seeburger", "module-spec", "alias-for", identifier.getName(), identifier.getSlot());
     }
 
     private ServiceName getModuleSpecServiceName(ModuleIdentifier identifier) {
