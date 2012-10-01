@@ -79,7 +79,7 @@
             <artifactId>jboss-logmanager</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.modules</groupId>
+            <groupId>com.seeburger.modules</groupId>
             <artifactId>jboss-modules</artifactId>
         </dependency>
         <dependency>
