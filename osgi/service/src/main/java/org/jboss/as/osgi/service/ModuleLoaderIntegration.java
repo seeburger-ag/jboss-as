@@ -113,17 +113,15 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
      */
     @Override
     public void addModule(final ModuleSpec moduleSpec) {
-        ModuleIdentifier identifier = moduleSpec.getModuleIdentifier();
-        ROOT_LOGGER.debugf("Add module spec to loader: %s", identifier);
 
-        ServiceName moduleSpecName = ServiceModuleLoader.moduleSpecServiceName(identifier);
-        ServiceBuilder<ModuleSpec> builder = serviceTarget.addService(moduleSpecName, new ValueService<ModuleSpec>(new ImmediateValue<ModuleSpec>(moduleSpec)));
+        addModuleSpec(moduleSpec);
 
         /**
          * SEEBURGER AG special: to be compatible with future jbosgi versions we register an alias
          * with the bundle location prepended with "deployment."
          */
-        ServiceController<?> moduleSpecAliasController = serviceContainer.getService(getSeeburgerAliasServiceName(identifier));
+        ModuleIdentifier targetIdentifier = moduleSpec.getModuleIdentifier();
+        ServiceController<?> moduleSpecAliasController = serviceContainer.getService(getSeeburgerAliasServiceName(targetIdentifier));
         if( null != moduleSpecAliasController){
             String moduleSpecAlias = null;
             if( ServiceController.State.UP.equals(moduleSpecAliasController.getState())){
@@ -132,14 +130,23 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
             else{
                 moduleSpecAlias = (String)((ValueService<?>)moduleSpecAliasController.getService()).getValueInternal();
             }
-            ROOT_LOGGER.debugf("--------------------- found alias %s for module identifier %s", moduleSpecAlias,
-                               identifier.toString());
-            ModuleIdentifier alias = ModuleIdentifier.create(moduleSpecAlias);
-            ServiceName aliasModuleSpecName = ServiceModuleLoader.moduleSpecServiceName(alias);
-            builder.addAliases(aliasModuleSpecName);
+            ROOT_LOGGER.infof("found SEEBURGER alias '%s' for module identifier '%s'",
+                              moduleSpecAlias, targetIdentifier.toString());
+            ModuleIdentifier aliasIdentifier = ModuleIdentifier.create(moduleSpecAlias);
+            addModuleSpec(ModuleSpec.buildAlias(aliasIdentifier, targetIdentifier).create());
         }
-        builder.install();
     }
+
+
+    private void addModuleSpec(final ModuleSpec moduleSpec){
+        ModuleIdentifier identifier = moduleSpec.getModuleIdentifier();
+        ROOT_LOGGER.infof("Add module spec to loader: %s", identifier);
+
+        ServiceName moduleSpecName = ServiceModuleLoader.moduleSpecServiceName(identifier);
+        serviceTarget.addService(moduleSpecName, new ValueService<ModuleSpec>(new ImmediateValue<ModuleSpec>(moduleSpec))).install();
+    }
+
+
 
     /**
      * Add an already loaded {@link Module} to the OSGi {@link ModuleLoader}. This happens when AS registers an existing
@@ -205,15 +212,13 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
             ServiceName seeburgerAliasServiceName = getSeeburgerAliasServiceName(identifier);
             if( null == serviceContainer.getService(seeburgerAliasServiceName)){
                 String moduleSpecAlias = MODULE_PREFIX + bundle.getLocation();
-                ROOT_LOGGER.debugf("-------------------- added %s with content %s",
-                                   seeburgerAliasServiceName.toString(), moduleSpecAlias);
+                ROOT_LOGGER.infof("added '%s' with content '%s'", seeburgerAliasServiceName, moduleSpecAlias);
                 serviceTarget.addService(seeburgerAliasServiceName,
                                          new ValueService<String>(new ImmediateValue<String>(moduleSpecAlias)))
                              .install();
             }
 
         }
-
         return identifier;
     }
 
