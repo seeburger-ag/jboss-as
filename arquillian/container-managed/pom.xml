@@ -76,7 +76,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-ejb-client</artifactId>
             <scope>test</scope>
         </dependency>

@@ -120,7 +120,7 @@ vi:ts=4:sw=4:expandtab
         </dependency>
 
         <dependency>
-            <groupId>org.jboss</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-ejb-client</artifactId>
         </dependency>
 
