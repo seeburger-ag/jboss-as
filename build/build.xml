@@ -115,7 +115,7 @@
 
     <target name="modules-minimalistic">
 
-        <copy file="${org.jboss.modules:jboss-modules:jar}" tofile="${output.dir}/jboss-modules.jar"/>
+        <copy file="${com.seeburger.as:jboss-modules:jar}" tofile="${output.dir}/jboss-modules.jar"/>
 
         <!--
           ~ Minimalistic list of modules to assemble.
@@ -225,7 +225,7 @@
         </module-def>
 
         <module-def name="org.jboss.modules">
-            <maven-resource group="org.jboss.modules" artifact="jboss-modules"/>
+            <maven-resource group="com.seeburger.as" artifact="jboss-modules"/>
         </module-def>
 
         <module-def name="org.jboss.msc">

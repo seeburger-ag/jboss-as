@@ -92,7 +92,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.modules</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-modules</artifactId>
         </dependency>
 
