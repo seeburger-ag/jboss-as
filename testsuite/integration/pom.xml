@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-testsuite</artifactId>
-        <version>7.1.1.SEE1-SNAPSHOT</version>
+        <version>7.1.1.SEE1</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-ts-integ</artifactId>
     <packaging>pom</packaging>
-    <version>7.1.1.SEE1-SNAPSHOT</version>
+    <version>7.1.1.SEE1</version>
 
     <name>JBoss Application Server Test Suite: Integration</name>
 
@@ -262,7 +260,7 @@
                         <!-- Fix one-letter-per-line. -->
                         <replacement> <token>^(.)\n(?!..+\n)</token> <value>$1</value> </replacement>
                         <!-- Fix double newlines. -->
-                        <replacement> <token>\n(?=\n)</token> <value></value> </replacement>
+                        <replacement> <token>\n(?=\n)</token> <value /> </replacement>
                     </replacements>
                    
                     <regexFlags>

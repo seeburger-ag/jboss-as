@@ -31,7 +31,7 @@
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-parent</artifactId>
-    <version>7.1.1.SEE1-SNAPSHOT</version>
+    <version>7.1.1.SEE1</version>
 
     <name>JBoss Application Server: Parent Aggregator</name>
     <description>JBoss Application Server: Parent Aggregator</description>
@@ -262,7 +262,7 @@
 
 
         <!-- Surefire args -->
-        <surefire.jpda.args/>
+        <surefire.jpda.args />
         <surefire.system.args>-da ${surefire.jpda.args}</surefire.system.args>
 
         <!-- Checkstyle configuration -->
@@ -377,7 +377,7 @@
                         <configLocation>jboss-as-checkstyle/checkstyle.xml</configLocation>
                         <consoleOutput>true</consoleOutput>
                         <failsOnError>true</failsOnError>
-                        <useFile/>
+                        <useFile />
                     </configuration>
                     <dependencies>
                         <dependency>
@@ -520,7 +520,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -537,7 +537,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -554,7 +554,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -573,7 +573,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -593,7 +593,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -612,7 +612,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -634,7 +634,7 @@
                                 		</goals>
                                 	</pluginExecutionFilter>
                                 	<action>
-                                		<ignore></ignore>
+                                		<ignore />
                                 	</action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -655,7 +655,7 @@
                                 		</goals>
                                 	</pluginExecutionFilter>
                                 	<action>
-                                		<ignore></ignore>
+                                		<ignore />
                                 	</action>
                                 </pluginExecution>
                             </pluginExecutions>
