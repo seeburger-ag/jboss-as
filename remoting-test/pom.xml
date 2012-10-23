@@ -27,12 +27,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE1</version>
+        <version>7.1.1.SEE1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-remoting-test</artifactId>
-    <version>7.1.1.SEE1</version>
+    <version>7.1.1.SEE1-SNAPSHOT</version>
 
     <name>JBoss Application Server: Remoting Subsystem Test</name>
     <description>This is not in the remoting subsystem as it introduces circular dependencies</description>
