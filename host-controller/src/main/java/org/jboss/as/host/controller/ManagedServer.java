@@ -69,8 +69,8 @@ import org.jboss.msc.service.ServiceActivator;
  */
 class ManagedServer {
 
-    private static final MarshallerFactory MARSHALLER_FACTORY;
-    private static final MarshallingConfiguration CONFIG;
+    protected static final MarshallerFactory MARSHALLER_FACTORY;
+    protected static final MarshallingConfiguration CONFIG;
 
     static {
         try {
@@ -102,17 +102,17 @@ class ManagedServer {
         return serverProcessName.substring(SERVER_PROCESS_NAME_PREFIX.length());
     }
 
-    private final byte[] authKey;
-    private final String serverName;
-    private final String serverProcessName;
-    private final String hostControllerName;
-    private final PathElement serverPath;
+    protected final byte[] authKey;
+    protected final String serverName;
+    protected final String serverProcessName;
+    protected final String hostControllerName;
+    protected final PathElement serverPath;
 
-    private final InetSocketAddress managementSocket;
-    private final ProcessControllerClient processControllerClient;
-    private final ManagedServer.ManagedServerBootConfiguration bootConfiguration;
+    protected final InetSocketAddress managementSocket;
+    protected final ProcessControllerClient processControllerClient;
+    protected final ManagedServer.ManagedServerBootConfiguration bootConfiguration;
 
-    private volatile RemoteProxyController proxyController;
+    protected volatile RemoteProxyController proxyController;
     private volatile int respawnCount;
 
     private volatile InternalState requiredState = InternalState.STOPPED;
@@ -434,7 +434,7 @@ class ManagedServer {
      *
      * @return the respawn count
      */
-    private int resetRespawnCount() {
+    protected int resetRespawnCount() {
         return respawnCountUpdater.getAndSet(this, 0);
     }
 
@@ -582,21 +582,22 @@ class ManagedServer {
     }
 
 
-    private class ProcessAddTask implements TransitionTask {
+    protected class ProcessAddTask implements TransitionTask {
 
         @Override
         public void execute(ManagedServer server) throws Exception {
             assert Thread.holdsLock(ManagedServer.this); // Call under lock
             final List<String> command = bootConfiguration.getServerLaunchCommand();
             final Map<String, String> env = bootConfiguration.getServerLaunchEnvironment();
-            final HostControllerEnvironment environment = bootConfiguration.getHostControllerEnvironment();
+            //final HostControllerEnvironment environment = bootConfiguration.getHostControllerEnvironment();
+            final String currentWorkingDir = SecurityActions.getSystemProperty("user.dir");
             // Add the process to the process controller
-            processControllerClient.addProcess(serverProcessName, authKey, command.toArray(new String[command.size()]), environment.getHomeDir().getAbsolutePath(), env);
+            processControllerClient.addProcess(serverProcessName, authKey, command.toArray(new String[command.size()]), currentWorkingDir, env);
         }
 
     }
 
-    private class ProcessRemoveTask implements TransitionTask {
+    protected class ProcessRemoveTask implements TransitionTask {
         @Override
         public void execute(ManagedServer server) throws Exception {
             assert Thread.holdsLock(ManagedServer.this); // Call under lock
@@ -606,7 +607,7 @@ class ManagedServer {
     }
 
 
-    private class ProcessStartTask implements TransitionTask {
+    protected class ProcessStartTask implements TransitionTask {
 
         @Override
         public void execute(ManagedServer server) throws Exception {
@@ -617,7 +618,7 @@ class ManagedServer {
 
     }
 
-    private class SendStdInTask implements TransitionTask {
+    protected class SendStdInTask implements TransitionTask {
 
         @Override
         public void execute(ManagedServer server) throws Exception {
@@ -638,7 +639,7 @@ class ManagedServer {
         }
     }
 
-    private class ServerStartedTask implements TransitionTask {
+    protected class ServerStartedTask implements TransitionTask {
 
         @Override
         public void execute(ManagedServer server) throws Exception {
@@ -647,7 +648,7 @@ class ManagedServer {
 
     }
 
-    private class ServerStopTask implements TransitionTask {
+    protected class ServerStopTask implements TransitionTask {
 
         @Override
         public void execute(ManagedServer server) throws Exception {
@@ -657,7 +658,7 @@ class ManagedServer {
         }
     }
 
-    private class ReconnectTask implements TransitionTask {
+    protected class ReconnectTask implements TransitionTask {
 
         @Override
         public void execute(ManagedServer server) throws Exception {
@@ -669,7 +670,7 @@ class ManagedServer {
         }
     }
 
-    private static Map<String, String> parseLaunchProperties(final List<String> commands) {
+    protected static Map<String, String> parseLaunchProperties(final List<String> commands) {
         final Map<String, String> result = new LinkedHashMap<String, String>();
         for (String cmd : commands) {
             if (cmd.startsWith("-D")) {
