@@ -60,8 +60,8 @@
         <jboss.as.scm.connection>git@github.com:seeburger-ag/jboss-as.git</jboss.as.scm.connection>
 
         <!-- Build configuration -->
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
 
         <!--
             Dependency versions. Please keep alphabetical.
@@ -365,6 +365,21 @@
                                 </manifestSection>
                             </manifestSections>
                         </archive>
+                    </configuration>
+                </plugin>
+
+                <!-- Overwrite maven compiler version, to overcome https://issues.jboss.org/browse/AS7-1773 when built with target 1.7-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.5.1</version>
+                    <configuration>
+                        <showDeprecation>true</showDeprecation>
+                        <showWarnings>true</showWarnings>
+                        <compilerArguments>
+                            <source>${maven.compiler.argument.source}</source>
+                            <target>${maven.compiler.argument.target}</target>
+                        </compilerArguments>
                     </configuration>
                 </plugin>
 
