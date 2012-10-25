@@ -368,7 +368,8 @@
                     </configuration>
                 </plugin>
 
-                <!-- Overwrite maven compiler version, to overcome https://issues.jboss.org/browse/AS7-1773 when built with target 1.7-->
+                <!-- Overwrite maven compiler argument translationFilesPath,
+                     to overcome https://issues.jboss.org/browse/AS7-1773 when built with target 1.7-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -380,6 +381,7 @@
                             <source>${maven.compiler.argument.source}</source>
                             <target>${maven.compiler.argument.target}</target>
                         </compilerArguments>
+                        <compilerArgument>-AtranslationFilesPath=${project.basedir}/src/main/resources/</compilerArgument>
                     </configuration>
                 </plugin>
 
