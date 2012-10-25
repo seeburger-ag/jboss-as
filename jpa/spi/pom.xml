@@ -28,12 +28,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-jpa-parent</artifactId>
-        <version>7.1.1.SEE2</version>
+        <version>7.1.1.SEE3-SNAPSHOT</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-jpa-spi</artifactId>
-    <version>7.1.1.SEE2</version>
+    <version>7.1.1.SEE3-SNAPSHOT</version>
 
     <name>JBoss Application Server: JPA SPI</name>
 
