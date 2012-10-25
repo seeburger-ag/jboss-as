@@ -27,12 +27,12 @@
 	<parent>
 		<groupId>com.seeburger.as</groupId>
 		<artifactId>jboss-as-arquillian</artifactId>
-		<version>7.1.1.SEE2-SNAPSHOT</version>
+		<version>7.1.1.SEE2</version>
 	</parent>
 
 	<groupId>com.seeburger.as</groupId>
 	<artifactId>jboss-as-arquillian-protocol-jmx</artifactId>
-	<version>7.1.1.SEE2-SNAPSHOT</version>
+	<version>7.1.1.SEE2</version>
 
 	<name>JBoss Application Server: Arquillian Protocol JMX</name>
 
