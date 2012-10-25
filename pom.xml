@@ -312,22 +312,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
             </plugin>
-            <!-- Overwrite maven compiler argument translationFilesPath,
-                 to overcome https://issues.jboss.org/browse/AS7-1773 when built with target 1.7-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
-                <configuration>
-                    <showDeprecation>true</showDeprecation>
-                    <showWarnings>true</showWarnings>
-                    <compilerArguments>
-                        <source>${maven.compiler.argument.source}</source>
-                        <target>${maven.compiler.argument.target}</target>
-                        <AtranslationFilesPath>${project.basedir}/src/main/resources/</AtranslationFilesPath>
-                    </compilerArguments>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
@@ -384,7 +368,7 @@
                     </configuration>
                 </plugin>
 
-                <!-- Overwrite maven compiler argument translationFilesPath,
+                <!-- Overwrite maven compiler argument AtranslationFilesPath,
                      to overcome https://issues.jboss.org/browse/AS7-1773 when built with target 1.7-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
