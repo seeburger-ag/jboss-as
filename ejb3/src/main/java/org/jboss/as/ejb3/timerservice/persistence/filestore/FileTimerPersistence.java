@@ -352,7 +352,8 @@ public class FileTimerPersistence implements TimerPersistence, Service<FileTimer
         String dirName = directories.get(timedObjectId);
         if (dirName == null) {
             final File baseDir = new File(this.baseDir.getValue());
-            dirName = baseDir.getAbsolutePath() + File.separator + timedObjectId.replace(File.separator, "-");
+            // SEEBURGER: https://issues.jboss.org/browse/AS7-3755 replace all non-word characters with dashes
+            dirName = baseDir.getAbsolutePath() + File.separator + timedObjectId.replaceAll("\\W", "-");
             File file = new File(dirName);
             if (!file.exists()) {
                 if (!file.mkdirs()) {
