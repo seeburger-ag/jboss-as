@@ -55,7 +55,7 @@
     <properties>
          <!-- Release Info -->
         <jboss.as.release.version>${project.version}</jboss.as.release.version>
-        <jboss.as.release.codename>Tiger</jboss.as.release.codename>
+        <jboss.as.release.codename>Jugendstil</jboss.as.release.codename>
         <jboss.as.scm.url>https://github.com/seeburger-ag/jboss-as</jboss.as.scm.url>
         <jboss.as.scm.connection>git@github.com:seeburger-ag/jboss-as.git</jboss.as.scm.connection>
 
