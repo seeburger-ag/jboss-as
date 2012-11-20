@@ -90,7 +90,7 @@ public abstract class AbstractLogHandlerWriteAttributeHandler<T extends Handler>
         } else if (FILTER.getName().equals(attributeName)) {
             handler.setFilter(ModelParser.parseFilter(context, resolvedValue));
         } else if (FORMATTER.getName().equals(attributeName)) {
-            FormatterSpec.fromModelNode(context, resolvedValue).apply(handler);
+            FormatterSpec.fromValue(resolvedValue.asString()).apply(handler);
         } else if (ENCODING.getName().equals(attributeName)) {
             try {
                 handler.setEncoding(resolvedValue.asString());

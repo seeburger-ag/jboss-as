@@ -46,6 +46,10 @@ public abstract class FormatterSpec implements Serializable {
         return new PatternFormatterSpec(FORMATTER.resolveModelAttribute(context, node).asString());
     }
 
+    public static FormatterSpec fromValue(final String formatter) {
+        return new PatternFormatterSpec(formatter);
+    }
+
 
     private static final class PatternFormatterSpec extends FormatterSpec {
 
