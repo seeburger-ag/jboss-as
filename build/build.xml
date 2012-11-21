@@ -241,7 +241,7 @@
         </module-def>
 
         <module-def name="org.jboss.logmanager">
-            <maven-resource group="org.jboss.logmanager" artifact="jboss-logmanager"/>
+            <maven-resource group="com.seeburger.as" artifact="jboss-logmanager"/>
         </module-def>
 
         <module-def name="org.jboss.logmanager.log4j">

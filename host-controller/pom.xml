@@ -99,7 +99,7 @@
             <artifactId>jboss-as-threads</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.logmanager</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jboss-logmanager</artifactId>
         </dependency>
         <dependency>
