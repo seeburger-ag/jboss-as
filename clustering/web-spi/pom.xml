@@ -27,7 +27,7 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-clustering</artifactId>
-        <version>7.1.1.SEE4-SNAPSHOT</version>
+        <version>7.1.1.SEE4</version>
     </parent>
 
     <artifactId>jboss-as-clustering-web-spi</artifactId>
