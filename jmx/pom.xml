@@ -27,12 +27,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE4</version>
+        <version>7.1.1.SEE5-SNAPSHOT</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-jmx</artifactId>
-    <version>7.1.1.SEE4</version>
+    <version>7.1.1.SEE5-SNAPSHOT</version>
 
     <name>JBoss Application Server: JMX Subsystem</name>
 
