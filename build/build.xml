@@ -643,12 +643,12 @@
         </module-def>
 
         <module-def name="org.hornetq">
-            <maven-resource group="org.hornetq" artifact="hornetq-core"/>
-            <maven-resource group="org.hornetq" artifact="hornetq-jms"/>
+            <maven-resource group="com.seeburger.as" artifact="hornetq-core"/>
+            <maven-resource group="com.seeburger.as" artifact="hornetq-jms"/>
         </module-def>
 
         <module-def name="org.hornetq.ra">
-            <maven-resource group="org.hornetq" artifact="hornetq-ra"/>
+            <maven-resource group="com.seeburger.as" artifact="hornetq-ra"/>
         </module-def>
 
         <module-def name="org.infinispan">
