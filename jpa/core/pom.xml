@@ -28,12 +28,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-jpa-parent</artifactId>
-        <version>7.1.1.SEE6-SNAPSHOT</version>
+        <version>7.1.1.SEE6</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-jpa</artifactId>
-    <version>7.1.1.SEE6-SNAPSHOT</version>
+    <version>7.1.1.SEE6</version>
 
     <name>JBoss Application Server: JPA Subsystem</name>
 
