@@ -28,12 +28,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE6</version>
+        <version>7.1.1.SEE7-SNAPSHOT</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-dist</artifactId>
-    <version>7.1.1.SEE6</version>
+    <version>7.1.1.SEE7-SNAPSHOT</version>
 
     <name>JBoss Application Server: Distribution</name>
     <packaging>pom</packaging>
