@@ -54,14 +54,14 @@ public class ConfigurationFile {
     private static final String INITIAL_SUFFIX = INITIAL + ".xml";
     private static final String ORIGINAL_SUFFIX = BOOT + ".xml";
 
-    private static final int CURRENT_HISTORY_LENGTH = 100;
-    private static final int HISTORY_DAYS = 30;
+    private static final int CURRENT_HISTORY_LENGTH = Integer.getInteger("jboss.configuration.persistence.history.length", 10).intValue();
+    private static final int HISTORY_DAYS = Integer.getInteger("jboss.configuration.persistence.history.days", 5).intValue();
     private static final String TIMESTAMP_STRING = "\\d\\d\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d\\d\\d\\d\\d\\d";
     private static final Pattern TIMESTAMP_PATTERN = Pattern.compile(TIMESTAMP_STRING);
     private static final String TIMESTAMP_FORMAT = "yyyyMMdd-HHmmssSSS";
     private static final Pattern VERSION_PATTERN = Pattern.compile("v\\d+");
     private static final Pattern FILE_WITH_VERSION_PATTERN = Pattern.compile("\\S*\\.v\\d+\\.xml");
-    private static final Pattern SNAPSHOT_XML = Pattern.compile(TIMESTAMP_STRING + "\\S*\\.xml");
+    protected static final Pattern SNAPSHOT_XML = Pattern.compile(TIMESTAMP_STRING + "\\S*\\.xml");
 
 
     private final AtomicInteger sequence = new AtomicInteger();
@@ -74,7 +74,7 @@ public class ConfigurationFile {
     private final String mainFileName;
     private final File historyRoot;
     private final File currentHistory;
-    private final File snapshotsDirectory;
+    protected final File snapshotsDirectory;
 
 
     public ConfigurationFile(final File configurationDir, final String rawName, final String name) {
