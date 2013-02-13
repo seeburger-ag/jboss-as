@@ -27,12 +27,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE7-SNAPSHOT</version>
+        <version>7.1.1.SEE7</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-jaxrs</artifactId>
-    <version>7.1.1.SEE7-SNAPSHOT</version>
+    <version>7.1.1.SEE7</version>
 
     <name>JBoss Application Server: JAX-RS Integration</name>
 
