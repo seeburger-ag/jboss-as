@@ -76,6 +76,8 @@ public enum EJB3SubsystemXMLAttribute {
     THREAD_POOL_NAME("thread-pool-name"),
 
     USE_QUALIFIED_NAME("use-qualified-name"),
+
+    VALUE("value"),
     ;
 
     private final String name;

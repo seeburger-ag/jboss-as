@@ -40,6 +40,7 @@ public interface EJB3SubsystemModel {
     String CONNECTOR_REF = "connector-ref";
     String IN_VM_REMOTE_INTERFACE_INVOCATION_PASS_BY_VALUE = "in-vm-remote-interface-invocation-pass-by-value";
 
+    String DEFAULT_DISTINCT_NAME = "default-distinct-name";
     String DEFAULT_MDB_INSTANCE_POOL = "default-mdb-instance-pool";
     String DEFAULT_RESOURCE_ADAPTER_NAME = "default-resource-adapter-name";
     String DEFAULT_SFSB_CACHE = "default-sfsb-cache";
@@ -49,6 +50,8 @@ public interface EJB3SubsystemModel {
     String INSTANCE_ACQUISITION_TIMEOUT_UNIT = "timeout-unit";
     String DEFAULT_ENTITY_BEAN_INSTANCE_POOL = "default-entity-bean-instance-pool";
     String DEFAULT_ENTITY_BEAN_OPTIMISTIC_LOCKING = "default-entity-bean-optimistic-locking";
+
+    String ENABLE_STATISTICS = "enable-statistics";
 
     String MAX_POOL_SIZE = "max-pool-size";
     String STRICT_MAX_BEAN_INSTANCE_POOL = "strict-max-bean-instance-pool";
