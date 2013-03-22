@@ -36,12 +36,9 @@ import org.jboss.as.network.NetworkUtils;
 import org.jboss.as.network.OutboundSocketBinding;
 import org.jboss.msc.inject.Injector;
 import org.jboss.msc.service.ServiceName;
-import org.jboss.msc.service.StartContext;
-import org.jboss.msc.service.StartException;
 import org.jboss.msc.value.InjectedValue;
 import org.jboss.remoting3.Connection;
 import org.jboss.remoting3.Endpoint;
-import org.jboss.remoting3.remote.RemoteConnectionProviderFactory;
 import org.xnio.IoFuture;
 import org.xnio.OptionMap;
 import org.xnio.Options;
@@ -74,24 +71,6 @@ public class RemoteOutboundConnectionService extends AbstractOutboundConnectionS
         this.username = username;
     }
 
-    @Override
-    public void start(StartContext context) throws StartException {
-
-        super.start(context);
-        // setup the connection provider factory for remote:// scheme, for the endpoint
-        final Endpoint endpoint = this.endpointInjectedValue.getValue();
-        // first check if the URI scheme is already registered. If it is, then *don't* re-register
-        // Note: The isValidUriScheme method name is a bit misleading. All it does is a check for already
-        // registered connection providers for that URI scheme
-        if (!endpoint.isValidUriScheme(REMOTE_URI_SCHEME)) {
-            try {
-                // TODO: Allow a way to pass the options
-                endpoint.addConnectionProvider(REMOTE_URI_SCHEME, new RemoteConnectionProviderFactory(), OptionMap.EMPTY);
-            } catch (IOException ioe) {
-                throw MESSAGES.couldNotRegisterConnectionProvider(REMOTE_URI_SCHEME, ioe);
-            }
-        }
-    }
 
     @Override
     public IoFuture<Connection> connect() throws IOException {
