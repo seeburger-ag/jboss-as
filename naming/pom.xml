@@ -27,12 +27,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE8-SNAPSHOT</version>
+        <version>7.1.1.SEE8</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-naming</artifactId>
-    <version>7.1.1.SEE8-SNAPSHOT</version>
+    <version>7.1.1.SEE8</version>
 
     <name>JBoss Application Server: Naming Subsystem</name>
 
