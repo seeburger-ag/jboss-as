@@ -29,7 +29,7 @@ vi:ts=4:sw=4:expandtab
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE8</version>
+        <version>7.1.1.SEE9-SNAPSHOT</version>
     </parent>
 
     <artifactId>jboss-as-ejb3</artifactId>
