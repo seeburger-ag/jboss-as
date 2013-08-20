@@ -30,6 +30,7 @@ import org.jboss.modules.ModuleIdentifier;
 import org.jboss.modules.ModuleLoadException;
 import org.jboss.modules.ModuleLoader;
 import org.jboss.modules.ModuleSpec;
+import org.jboss.msc.service.DuplicateServiceException;
 import org.jboss.msc.service.ServiceBuilder;
 import org.jboss.msc.service.ServiceContainer;
 import org.jboss.msc.service.ServiceController;
@@ -144,6 +145,21 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
 
         ServiceName moduleSpecName = ServiceModuleLoader.moduleSpecServiceName(identifier);
         serviceTarget.addService(moduleSpecName, new ValueService<ModuleSpec>(new ImmediateValue<ModuleSpec>(moduleSpec))).install();
+
+        /**
+         * SEEBURGER AG special: workaround for https://issues.jboss.org/browse/AS7-1326
+         * To allow hot-deployment during development time.
+         */
+        try{
+            serviceTarget.addService(moduleSpecName, new ValueService<ModuleSpec>(new ImmediateValue<ModuleSpec>(moduleSpec))).install();
+        }
+        catch(DuplicateServiceException dse){
+            if  (!Boolean.getBoolean("com.seeburger.jboss.osgi.moduleloader.ignore-redeploy-exception"))
+            {
+                throw dse;
+            }
+            ROOT_LOGGER.error("SEEBURGER patch for AS7-1326: ignoring execption.", dse);
+        }
     }
 
 
