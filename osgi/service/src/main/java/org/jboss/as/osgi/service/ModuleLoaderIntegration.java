@@ -144,7 +144,6 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
         ROOT_LOGGER.infof("Add module spec to loader: %s", identifier);
 
         ServiceName moduleSpecName = ServiceModuleLoader.moduleSpecServiceName(identifier);
-        serviceTarget.addService(moduleSpecName, new ValueService<ModuleSpec>(new ImmediateValue<ModuleSpec>(moduleSpec))).install();
 
         /**
          * SEEBURGER AG special: workaround for https://issues.jboss.org/browse/AS7-1326
