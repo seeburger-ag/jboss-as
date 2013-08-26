@@ -34,6 +34,7 @@ import org.jboss.as.ejb3.deployment.DeploymentRepository;
 import org.jboss.as.ejb3.deployment.EjbDeploymentInformation;
 import org.jboss.as.security.remoting.RemotingContext;
 import org.jboss.ejb.client.Affinity;
+import org.jboss.ejb.client.EJBClientInvocationContext;
 import org.jboss.ejb.client.EJBLocator;
 import org.jboss.ejb.client.EntityEJBLocator;
 import org.jboss.ejb.client.SessionID;
@@ -251,10 +252,11 @@ class MethodInvocationMessageHandler extends EJBIdentifierBasedMessageHandler {
         final InterceptorContext interceptorContext = new InterceptorContext();
         interceptorContext.setParameters(args);
         interceptorContext.setMethod(method);
-        interceptorContext.setContextData(new HashMap<String, Object>());
         interceptorContext.putPrivateData(Component.class, componentView.getComponent());
         interceptorContext.putPrivateData(ComponentView.class, componentView);
         interceptorContext.putPrivateData(InvocationType.class, InvocationType.REMOTE);
+        final Map<String, Object> invocationContextData = new HashMap<String, Object>();
+        interceptorContext.setContextData(invocationContextData);
         if (attachments != null) {
             // attach the attachments which were passed from the remote client
             for (final Map.Entry<String, Object> attachment : attachments.entrySet()) {
@@ -264,7 +266,18 @@ class MethodInvocationMessageHandler extends EJBIdentifierBasedMessageHandler {
                 final String key = attachment.getKey();
                 final Object value = attachment.getValue();
                 // add it to the context
-                interceptorContext.putPrivateData(key, value);
+                if (EJBClientInvocationContext.PRIVATE_ATTACHMENTS_KEY.equals(key)) {
+                    final Map<Object, Object> privateAttachments = (Map<Object, Object>) value;
+                    for (final Map.Entry<Object, Object> privateAttachment : privateAttachments.entrySet())
+                    {
+                        interceptorContext.putPrivateData(privateAttachment.getKey(), privateAttachment.getValue());
+                    }
+                }
+                else{
+                    // add it to the InvocationContext which will be visible to the target bean and the
+                    // application specific interceptors
+                    invocationContextData.put(key, value);
+                }
             }
         }
         // add the session id to the interceptor context, if it's a stateful ejb locator

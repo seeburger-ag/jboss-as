@@ -22,6 +22,7 @@
 
 package org.jboss.as.ejb3.remote;
 
+import org.jboss.ejb.client.AttachmentKeys;
 import javax.transaction.Transaction;
 import javax.transaction.TransactionManager;
 import javax.transaction.UserTransaction;
@@ -63,7 +64,7 @@ class EJBRemoteTransactionPropagatingInterceptor implements Interceptor {
         final TransactionManager transactionManager = this.ejbRemoteTransactionsRepository.getTransactionManager();
         Transaction originatingRemoteTx = null;
         // get the transaction id attachment
-        final TransactionID transactionID = (TransactionID) context.getPrivateData(TransactionID.PRIVATE_DATA_KEY);
+        final TransactionID transactionID = (TransactionID) context.getPrivateData(AttachmentKeys.TRANSACTION_ID_KEY);
         if (transactionID != null) {
             // if it's UserTransaction then create or resume the UserTransaction corresponding to the ID
             if (transactionID instanceof UserTransactionID) {
