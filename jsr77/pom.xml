@@ -27,12 +27,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE9-SNAPSHOT</version>
+        <version>7.1.1.SEE9</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-jsr77</artifactId>
-    <version>7.1.1.SEE9-SNAPSHOT</version>
+    <version>7.1.1.SEE9</version>
 
     <name>JBoss Application Server: JSR-77 Subsystem</name>
 
