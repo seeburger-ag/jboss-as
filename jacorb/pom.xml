@@ -95,7 +95,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.jbossts</groupId>
+            <groupId>com.seeburger.as</groupId>
             <artifactId>jbossjts</artifactId>
         </dependency>
 

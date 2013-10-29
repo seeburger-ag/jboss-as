@@ -3734,7 +3734,7 @@
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.jbossts</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jbossjts</artifactId>
                 <version>${version.org.jboss.jbossts.jbossjts}</version>
                 <exclusions>
@@ -3870,7 +3870,7 @@
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.jbossts</groupId>
+                <groupId>com.seeburger.as</groupId>
                 <artifactId>jbossjts-integration</artifactId>
                 <version>${version.org.jboss.jbossts.jbossjts-integration}</version>
                 <exclusions>
