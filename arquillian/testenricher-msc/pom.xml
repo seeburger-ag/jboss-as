@@ -5,7 +5,7 @@
   <parent>
       <groupId>com.seeburger.as</groupId>
       <artifactId>jboss-as-arquillian</artifactId>
-      <version>7.1.1.SEE10-SNAPSHOT</version>
+      <version>7.1.1.SEE10</version>
   </parent>
 
   <!-- Model Version -->
@@ -14,7 +14,7 @@
   <!-- Artifact Configuration -->
   <groupId>com.seeburger.as</groupId>
   <artifactId>jboss-as-arquillian-testenricher-msc</artifactId>
-  <version>7.1.1.SEE10-SNAPSHOT</version>
+  <version>7.1.1.SEE10</version>
   
   <name>JBoss Application Server: Arquillian TestEnricher MSC</name>
 
