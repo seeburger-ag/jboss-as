@@ -27,7 +27,7 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jdr</artifactId>
-        <version>7.1.1.SEE11</version>
+        <version>7.1.1.SEE12-SNAPSHOT</version>
     </parent>
 
     <artifactId>jboss-as-jdr</artifactId>
