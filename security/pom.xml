@@ -27,12 +27,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE12</version>
+        <version>7.1.1.SEE13-SNAPSHOT</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-security</artifactId>
-    <version>7.1.1.SEE12</version>
+    <version>7.1.1.SEE13-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JBoss Application Server: Security Subsystem</name>
