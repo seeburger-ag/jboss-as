@@ -29,7 +29,7 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE12-SNAPSHOT</version>
+        <version>7.1.1.SEE12</version>
     </parent>
 
     <artifactId>jboss-as-cmp</artifactId>
