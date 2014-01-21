@@ -277,11 +277,11 @@
         </module-def>
 
         <module-def name="org.jboss.xnio">
-            <maven-resource group="org.jboss.xnio" artifact="xnio-api"/>
+            <maven-resource group="com.seeburger.xnio" artifact="xnio-api"/>
         </module-def>
 
         <module-def name="org.jboss.xnio.nio">
-            <maven-resource group="org.jboss.xnio" artifact="xnio-nio"/>
+            <maven-resource group="com.seeburger.xnio" artifact="xnio-nio"/>
         </module-def>
 
     </target>
