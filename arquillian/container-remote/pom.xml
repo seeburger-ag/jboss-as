@@ -27,12 +27,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-arquillian</artifactId>
-        <version>7.1.1.SEE13-SNAPSHOT</version>
+        <version>7.1.1.SEE13</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-arquillian-container-remote</artifactId>
-    <version>7.1.1.SEE13-SNAPSHOT</version>
+    <version>7.1.1.SEE13</version>
 
     <name>JBoss Application Server: Arquillian Remote Container</name>
 
