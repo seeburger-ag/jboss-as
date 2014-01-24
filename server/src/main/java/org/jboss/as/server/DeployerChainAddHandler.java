@@ -154,7 +154,7 @@ public class DeployerChainAddHandler implements OperationStepHandler, Descriptio
         @Override
         public int compareTo(final RegisteredProcessor o) {
             final int rel = Integer.signum(priority - o.priority);
-            return rel == 0 ? processor.getClass().getName().compareTo(o.getClass().getName()) : rel;
+            return rel == 0 ? processor.getClass().getName().compareTo(o.processor.getClass().getName()) : rel;
         }
 
         int getPriority() {
