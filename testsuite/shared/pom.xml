@@ -5,14 +5,14 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE14-SNAPSHOT</version>
+        <version>7.1.1.SEE14</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-testsuite-shared</artifactId>
     <packaging>jar</packaging>
-    <version>7.1.1.SEE14-SNAPSHOT</version>
+    <version>7.1.1.SEE14</version>
 
     <name>JBoss Application Server Test Suite: Shared</name>
 
