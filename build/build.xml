@@ -42,10 +42,10 @@
                 <include name="standalone/deployments/**"/>
                 <include name="welcome-content/**"/>
             </fileset>
-        	   <fileset dir="${generated.configs}">
-        	   	 <include name="domain/**"/>
-        	   	 <include name="docs/**"/>
-        	   </fileset>
+               <fileset dir="${generated.configs}">
+                    <include name="domain/**"/>
+                    <include name="docs/**"/>
+               </fileset>
         </copy>
         <chmod perm="755">
             <fileset dir="${output.dir}/bin">
@@ -439,7 +439,7 @@
         </module-def>
 
         <module-def name="javax.ws.rs.api">
-            <maven-resource group="org.jboss.spec.javax.ws.rs" artifact="jboss-jaxrs-api_1.1_spec"/>
+            <maven-resource group="org.jboss.resteasy" artifact="jaxrs-api"/>
         </module-def>
 
         <module-def name="javax.xml.bind.api">
@@ -595,11 +595,11 @@
             <maven-resource group="xml-resolver" artifact="xml-resolver"/>
         </module-def>
 
-    	<module-def name="org.apache.ws.xmlschema">
+        <module-def name="org.apache.ws.xmlschema">
             <maven-resource group="org.apache.ws.xmlschema" artifact="xmlschema-core"/>
         </module-def>
 
-    	<module-def name="org.apache.ws.security">
+        <module-def name="org.apache.ws.security">
             <maven-resource group="org.apache.ws.security" artifact="wss4j"/>
         </module-def>
 
@@ -757,7 +757,7 @@
             <maven-resource group="com.seeburger.as" artifact="jboss-as-deployment-scanner"/>
         </module-def>
 
-    	<module-def name="org.jboss.as.domain-add-user" />
+        <module-def name="org.jboss.as.domain-add-user" />
 
         <module-def name="org.jboss.as.ee">
             <maven-resource group="com.seeburger.as" artifact="jboss-as-ee"/>
@@ -852,7 +852,7 @@
             <maven-resource group="com.seeburger.as" artifact="jboss-as-naming"/>
         </module-def>
 
-     	<module-def name="org.jboss.as.osgi">
+         <module-def name="org.jboss.as.osgi">
             <maven-resource group="com.seeburger.as" artifact="jboss-as-osgi-service"/>
         </module-def>
 
@@ -1001,7 +1001,7 @@
         </module-def>
 
         <module-def name="org.jboss.resteasy.resteasy-atom-provider">
-            <maven-resource group="org.jboss.resteasy" artifact="resteasy-atom-provider"  jandex="true"/>
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-atom-provider"/>
         </module-def>
 
         <module-def name="org.jboss.resteasy.resteasy-cdi">
@@ -1009,40 +1009,92 @@
         </module-def>
 
         <module-def name="org.jboss.resteasy.resteasy-jackson-provider">
-            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jackson-provider" jandex="true"/>
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jackson-provider" />
         </module-def>
 
         <module-def name="org.jboss.resteasy.resteasy-jaxb-provider">
-            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jaxb-provider" jandex="true"/>
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jaxb-provider" />
         </module-def>
 
         <module-def name="org.jboss.resteasy.resteasy-jettison-provider">
-            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jettison-provider" jandex="true"/>
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jettison-provider" />
         </module-def>
 
         <module-def name="org.jboss.resteasy.resteasy-jaxrs">
             <maven-resource group="org.jboss.resteasy" artifact="async-http-servlet-3.0"/>
-            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jaxrs" jandex="true"/>
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jaxrs" />
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-client" />
         </module-def>
 
         <module-def name="org.jboss.resteasy.resteasy-jsapi">
-            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jsapi" jandex="true"/>
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jsapi" />
         </module-def>
 
         <module-def name="org.jboss.resteasy.resteasy-multipart-provider">
-            <maven-resource group="org.jboss.resteasy" artifact="resteasy-multipart-provider" jandex="true"/>
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-multipart-provider" />
         </module-def>
 
         <module-def name="org.jboss.resteasy.resteasy-yaml-provider">
-            <maven-resource group="org.jboss.resteasy" artifact="resteasy-yaml-provider" jandex="true"/>
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-yaml-provider" />
+        </module-def>
+
+        <module-def name="org.jboss.resteasy.resteasy-crypto">
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-crypto" />
+        </module-def>
+
+        <module-def name="org.jboss.resteasy.resteasy-hibernatevalidator-provider">
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-hibernatevalidator-provider" />
+        </module-def>
+
+        <module-def name="org.jboss.resteasy.jose-jwt">
+            <maven-resource group="org.jboss.resteasy" artifact="jose-jwt" />
+        </module-def>
+
+        <module-def name="org.jboss.resteasy.skeleton-key">
+            <maven-resource group="org.jboss.resteasy" artifact="skeleton-key-core" />
+            <maven-resource group="org.jboss.resteasy" artifact="skeleton-key-as7" />
+        </module-def>
+
+        <module-def name="org.jboss.resteasy.resteasy-jackson2-provider">
+            <maven-resource group="org.jboss.resteasy" artifact="resteasy-jackson2-provider" />
+        </module-def>
+
+        <module-def name="com.fasterxml.jackson.core.jackson-annotations">
+            <maven-resource group="com.fasterxml.jackson.core" artifact="jackson-annotations" />
+        </module-def>
+
+        <module-def name="com.fasterxml.jackson.core.jackson-core">
+            <maven-resource group="com.fasterxml.jackson.core" artifact="jackson-core" />
+        </module-def>
+
+        <module-def name="com.fasterxml.jackson.core.jackson-databind">
+            <maven-resource group="com.fasterxml.jackson.core" artifact="jackson-databind" />
+        </module-def>
+
+        <module-def name="com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider">
+            <maven-resource group="com.fasterxml.jackson.jaxrs" artifact="jackson-jaxrs-base" />
+            <maven-resource group="com.fasterxml.jackson.jaxrs" artifact="jackson-jaxrs-json-provider" />
+            <maven-resource group="com.fasterxml.jackson.module" artifact="jackson-module-jaxb-annotations" />
+        </module-def>
+
+        <module-def name="org.bouncycastle.bcmail">
+            <maven-resource group="org.bouncycastle" artifact="bcmail-jdk15on" />
+        </module-def>
+
+        <module-def name="org.bouncycastle.bcpkix">
+            <maven-resource group="org.bouncycastle" artifact="bcpkix-jdk15on" />
+        </module-def>
+
+        <module-def name="org.bouncycastle.bcprov">
+            <maven-resource group="org.bouncycastle" artifact="bcprov-jdk15on" />
         </module-def>
 
         <module-def name="org.jboss.security.negotiation">
             <maven-resource group="org.jboss.security" artifact="jboss-negotiation-common"/>
-        	<maven-resource group="org.jboss.security" artifact="jboss-negotiation-extras"/>
+            <maven-resource group="org.jboss.security" artifact="jboss-negotiation-extras"/>
             <maven-resource group="org.jboss.security" artifact="jboss-negotiation-net"/>
-        	<maven-resource group="org.jboss.security" artifact="jboss-negotiation-ntlm"/>
-        	<maven-resource group="org.jboss.security" artifact="jboss-negotiation-spnego"/>
+            <maven-resource group="org.jboss.security" artifact="jboss-negotiation-ntlm"/>
+            <maven-resource group="org.jboss.security" artifact="jboss-negotiation-spnego"/>
         </module-def>
 
         <module-def name="org.jboss.security.xacml">
@@ -1151,8 +1203,8 @@
         </module-def>
 
         <module-def name="org.picketlink">
-            <maven-resource group="org.picketlink" artifact="picketlink-fed" jandex="true"/>
-            <maven-resource group="org.picketlink" artifact="picketlink-bindings" jandex="true"/>
+            <maven-resource group="org.picketlink" artifact="picketlink-fed"/>
+            <maven-resource group="org.picketlink" artifact="picketlink-bindings"/>
             <maven-resource group="org.picketlink" artifact="picketlink-bindings-jboss"/>
         </module-def>
 

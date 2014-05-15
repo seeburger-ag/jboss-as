@@ -92,8 +92,8 @@
       <artifactId>jboss-transaction-api_1.1_spec</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.jboss.spec.javax.ws.rs</groupId>
-      <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>jaxrs-api</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jboss.spec.javax.xml.bind</groupId>
@@ -148,7 +148,7 @@
       <artifactId>jboss-j2eemgmt-api_1.1_spec</artifactId>
     </dependency>
   </dependencies>
-  
+
   <!-- Modules -->
   <modules>
     <module>test</module>
