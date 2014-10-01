@@ -175,8 +175,7 @@ class ModelCombiner implements ManagedServerBootConfiguration {
      * @return the process boot configuration
      */
     public ManagedServerBootConfiguration createConfiguration() {
-        return new ProcessedBootConfiguration(getServerLaunchCommand(), getBootUpdates(),
-                 getServerLaunchEnvironment(), isManagementSubsystemEndpoint(), environment);
+        return this;
     }
 
     @Override
