@@ -181,8 +181,14 @@ public final class ContainerStateMonitor extends AbstractServiceListener<Object>
 
                 if (changeReport != null) {
                     final String msg = createChangeReportLogMessage(changeReport);
+                    boolean reportError = !changeReport.getMissingServices().isEmpty() || !changeReport.getFailedControllers().isEmpty();
                     changeReport = null;
-                    ROOT_LOGGER.info(msg);
+                    if (reportError) {
+                        ROOT_LOGGER.error(msg);
+                    }
+                    else {
+                        ROOT_LOGGER.info(msg);
+                    }
                 }
             }
         }
