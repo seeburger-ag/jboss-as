@@ -124,14 +124,14 @@ public class BundleStartTracker implements Service<BundleStartTracker> {
             private void processService(ServiceController<? extends Bundle> controller) {
                 controller.removeListener(this);
                 Map<ServiceName, Tuple> bundlesToStart = null;
-                synchronized (this) {
                     ServiceName key = controller.getName();
                     pendingServices.remove(key);
                     if (pendingServices.isEmpty()) {
-                        bundlesToStart = new HashMap<ServiceName, Tuple>(startedServices);
-                        startedServices.clear();
+                    	synchronized (startedServices) {
+                            bundlesToStart = new HashMap<ServiceName, Tuple>(startedServices);
+                            startedServices.clear();
+						}
                     }
-                }
                 if (bundlesToStart != null) {
                     PackageAdmin packageAdmin = injectedPackageAdmin.getValue();
                     for (Tuple tuple : bundlesToStart.values()) {
