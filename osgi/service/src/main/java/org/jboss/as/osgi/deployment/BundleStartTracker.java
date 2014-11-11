@@ -127,10 +127,10 @@ public class BundleStartTracker implements Service<BundleStartTracker> {
                     ServiceName key = controller.getName();
                     pendingServices.remove(key);
                     if (pendingServices.isEmpty()) {
-                    	synchronized (startedServices) {
+                        synchronized (startedServices) {
                             bundlesToStart = new HashMap<ServiceName, Tuple>(startedServices);
                             startedServices.clear();
-						}
+                        }
                     }
                 if (bundlesToStart != null) {
                     PackageAdmin packageAdmin = injectedPackageAdmin.getValue();
