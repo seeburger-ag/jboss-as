@@ -72,7 +72,7 @@
                                     <descriptors>
                                         <descriptor>assembly.xml</descriptor>
                                     </descriptors>
-                                    <finalName>see-as-${project.version}</finalName>
+                                    <finalName>jboss-as-${project.version}</finalName>
                                     <appendAssemblyId>false</appendAssemblyId>
                                     <outputDirectory>target/</outputDirectory>
                                     <workDirectory>target/assembly/work</workDirectory>
@@ -89,7 +89,7 @@
                                     <descriptors>
                                         <descriptor>assembly-src.xml</descriptor>
                                     </descriptors>
-                                    <finalName>see-as-${project.version}</finalName>
+                                    <finalName>jboss-as-${project.version}</finalName>
                                     <appendAssemblyId>true</appendAssemblyId>
                                     <outputDirectory>target/</outputDirectory>
                                     <workDirectory>target/assembly-src/work</workDirectory>
