@@ -943,7 +943,7 @@
         </module-def>
 
         <module-def name="org.jboss.ironjacamar.jdbcadapters">
-            <maven-resource group="org.jboss.ironjacamar" artifact="ironjacamar-jdbc"/>
+            <maven-resource group="com.seeburger.fork" artifact="ironjacamar-jdbc"/>
         </module-def>
 
         <module-def name="org.jboss.jaxbintros">

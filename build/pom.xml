@@ -1088,7 +1088,7 @@
                 </dependency>
 
                 <dependency>
-                    <groupId>org.jboss.ironjacamar</groupId>
+                    <groupId>com.seeburger.fork</groupId>
                     <artifactId>ironjacamar-jdbc</artifactId>
                 </dependency>
 

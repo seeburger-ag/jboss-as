@@ -156,6 +156,7 @@
         <version.org.jboss.interceptor>2.0.0.Final</version.org.jboss.interceptor>
         <version.org.jboss.invocation>1.1.1.Final</version.org.jboss.invocation>
         <version.org.jboss.ironjacamar>1.0.9.Final</version.org.jboss.ironjacamar>
+        <version.org.jboss.ironjacamar.jdbc>1.0.9.SEE1</version.org.jboss.ironjacamar.jdbc>
         <version.org.jboss.jandex>1.0.3.Final</version.org.jboss.jandex>
         <version.org.jboss.jboss-dmr>1.1.1.Final</version.org.jboss.jboss-dmr>
         <version.org.jboss.jboss-transaction-spi>7.0.0.Final</version.org.jboss.jboss-transaction-spi>
@@ -3687,9 +3688,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.ironjacamar</groupId>
+                <groupId>com.seeburger.fork</groupId>
                 <artifactId>ironjacamar-jdbc</artifactId>
-                <version>${version.org.jboss.ironjacamar}</version>
+                <version>${version.org.jboss.ironjacamar.jdbc}</version>
             </dependency>
 
             <dependency>
