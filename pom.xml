@@ -134,6 +134,8 @@
         <version.org.codehaus.jettison>1.3.2</version.org.codehaus.jettison>
         <version.org.codehaus.woodstox.stax2-api>3.1.1</version.org.codehaus.woodstox.stax2-api>
         <version.org.codehaus.woodstox.woodstox-core-asl>4.1.1</version.org.codehaus.woodstox.woodstox-core-asl>
+        <!-- Replaces version.org.jboss.web.jasper-jdt -->
+        <version.org.eclipse.jdt.core.compiler.ecj>4.3.1</version.org.eclipse.jdt.core.compiler.ecj>
         <version.org.hibernate>4.0.1.Final</version.org.hibernate>
         <version.org.hibernate.commons.annotations>4.0.1.Final</version.org.hibernate.commons.annotations>
         <version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>1.0.1.Final</version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>
@@ -221,7 +223,8 @@
         <version.org.jboss.stdio>1.0.1.GA</version.org.jboss.stdio>
         <version.org.jboss.threads>2.0.0.GA</version.org.jboss.threads>
         <version.org.jboss.web>7.0.13.Final</version.org.jboss.web>
-        <version.org.jboss.web.jasper-jdt>7.0.3.Final</version.org.jboss.web.jasper-jdt>
+        <!-- Superseeded by version.org.eclipse.jdt.core.compiler.ecj -->
+        <!-- <version.org.jboss.web.jasper-jdt>7.0.3.Final</version.org.jboss.web.jasper-jdt> -->
         <version.org.jboss.weld.weld>1.1.5.AS71.Final</version.org.jboss.weld.weld>
         <version.org.jboss.weld.weld-api>1.1.Final</version.org.jboss.weld.weld-api>
         <version.org.jboss.ws.api>1.0.0.GA</version.org.jboss.ws.api>
@@ -5140,11 +5143,19 @@
                 </exclusions>
             </dependency>
 
+            <!-- Superseeded by org.eclipse.jdt.core.compiler.ecj
             <dependency>
                 <groupId>org.jboss.web</groupId>
                 <artifactId>jasper-jdt</artifactId>
                 <version>${version.org.jboss.web.jasper-jdt}</version>
             </dependency>
+             -->
+            <dependency>
+                <groupId>org.eclipse.jdt.core.compiler</groupId>
+                <artifactId>ecj</artifactId>
+                <version>${version.org.eclipse.jdt.core.compiler.ecj}</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>org.jboss.web</groupId>
