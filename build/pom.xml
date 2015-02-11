@@ -1536,15 +1536,9 @@
                     <artifactId>jboss-threads</artifactId>
                 </dependency>
 
-                <!-- Superseeded by org.eclipse.jdt.core.compiler.ecj
                 <dependency>
                     <groupId>org.jboss.web</groupId>
                     <artifactId>jasper-jdt</artifactId>
-                </dependency>
-                -->
-                <dependency>
-                    <groupId>org.eclipse.jdt.core.compiler</groupId>
-                    <artifactId>ecj</artifactId>
                 </dependency>
 
                 <dependency>
