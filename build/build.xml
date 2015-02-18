@@ -972,7 +972,7 @@
 
         <module-def name="org.jboss.osgi.framework">
             <maven-resource group="org.jboss.osgi.deployment" artifact="jbosgi-deployment"/>
-            <maven-resource group="org.jboss.osgi.framework" artifact="jbosgi-framework-core"/>
+            <maven-resource group="com.seeburger.fork" artifact="jbosgi-framework-core"/>
             <maven-resource group="org.jboss.osgi.resolver" artifact="jbosgi-resolver-api"/>
             <maven-resource group="org.jboss.osgi.resolver" artifact="jbosgi-resolver-spi"/>
             <maven-resource group="org.jboss.osgi.resolver" artifact="jbosgi-resolver-felix"/>

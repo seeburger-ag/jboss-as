@@ -1182,7 +1182,7 @@
                 </dependency>
 
                 <dependency>
-                    <groupId>org.jboss.osgi.framework</groupId>
+                    <groupId>com.seeburger.fork</groupId>
                     <artifactId>jbosgi-framework-core</artifactId>
                 </dependency>
 
