@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="osgi/configadmin/src/main/java"/>
+	<classpathentry kind="src" path="webservices/server-integration/src/test/java"/>
+	<classpathentry kind="src" path="web/src/main/java"/>
+	<classpathentry kind="src" path="weld/src/main/java"/>
+	<classpathentry kind="src" path="webservices/server-integration/src/main/java"/>
+	<classpathentry kind="src" path="webservices/tests-integration/src/main/java"/>
+	<classpathentry kind="src" path="web/src/test/java"/>
+	<classpathentry kind="src" path="weld/src/test/java"/>
 	<classpathentry kind="src" path="osgi/service/src/test/java"/>
 	<classpathentry kind="src" path="osgi/service/src/main/java"/>
 	<classpathentry kind="src" path="testsuite/integration/smoke/src/test/java"/>
