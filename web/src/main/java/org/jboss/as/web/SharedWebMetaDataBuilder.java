@@ -182,7 +182,7 @@ class SharedWebMetaDataBuilder {
         initParams.add(createParameter("compilerSourceVM", config.require(SOURCE_VM).asString()));
         initParams.add(createParameter("compilerTargetVM", config.require(TARGET_VM).asString()));
         initParams.add(createParameter("javaEncoding", config.require(JAVA_ENCODING).asString()));
-        initParams.add(createParameter("xpoweredBy", config.require(X_POWERED_BY).asString()));
+        // SEE Bug#44209 avoid x-powered-by header initParams.add(createParameter("xpoweredBy", config.require(X_POWERED_BY).asString()));
         initParams.add(createParameter("displaySourceFragment", config.require(DISPLAY_SOURCE_FRAGMENT).asString()));
 
         servlet.setInitParam(initParams);
