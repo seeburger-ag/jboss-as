@@ -74,7 +74,7 @@
             <artifactId>jboss-as-server</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.remotingjmx</groupId>
+            <groupId>com.seeburger.fork</groupId>
             <artifactId>remoting-jmx</artifactId>
         </dependency>
         <dependency>
