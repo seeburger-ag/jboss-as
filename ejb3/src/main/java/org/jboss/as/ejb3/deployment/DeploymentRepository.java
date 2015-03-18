@@ -28,7 +28,7 @@ public class DeploymentRepository implements Service<DeploymentRepository> {
     /**
      * All deployed modules. This is a copy on write map that is updated infrequently and read often.
      */
-    private volatile Map<DeploymentModuleIdentifier, ModuleDeployment> modules;
+    private volatile Map<DeploymentModuleIdentifier, DeploymentHolder> modules;
 
     private final List<DeploymentRepositoryListener> listeners = new ArrayList<DeploymentRepositoryListener>();
 
@@ -49,9 +49,13 @@ public class DeploymentRepository implements Service<DeploymentRepository> {
     }
 
     public synchronized void add(DeploymentModuleIdentifier identifier, ModuleDeployment deployment) {
-        final Map<DeploymentModuleIdentifier, ModuleDeployment> modules = new HashMap<DeploymentModuleIdentifier, ModuleDeployment>(this.modules);
-        modules.put(identifier, deployment);
-        this.modules = Collections.unmodifiableMap(modules);
+        final List<DeploymentRepositoryListener> listeners;
+        synchronized (this) {
+            final Map<DeploymentModuleIdentifier, DeploymentHolder> modules = new HashMap<DeploymentModuleIdentifier, DeploymentHolder>(this.modules);
+            modules.put(identifier, new DeploymentHolder(deployment));
+            this.modules = Collections.unmodifiableMap(modules);
+            listeners = new ArrayList<DeploymentRepositoryListener>(this.listeners);
+        }
         for(final DeploymentRepositoryListener listener : listeners) {
             try {
                 listener.deploymentAvailable(identifier, deployment);
@@ -61,19 +65,25 @@ public class DeploymentRepository implements Service<DeploymentRepository> {
         }
     }
 
-    public synchronized void addListener(final DeploymentRepositoryListener listener) {
+    public void addListener(final DeploymentRepositoryListener listener) {
+        synchronized (this) {
+            listeners.add(listener);
+        }
         listener.listenerAdded(this);
-        listeners.add(listener);
     }
 
     public synchronized void removeListener(final DeploymentRepositoryListener listener) {
         listeners.remove(listener);
     }
 
-    public synchronized void remove(DeploymentModuleIdentifier identifier) {
-        final Map<DeploymentModuleIdentifier, ModuleDeployment> modules = new HashMap<DeploymentModuleIdentifier, ModuleDeployment>(this.modules);
-        modules.remove(identifier);
-        this.modules = Collections.unmodifiableMap(modules);
+    public void remove(DeploymentModuleIdentifier identifier) {
+        final List<DeploymentRepositoryListener> listeners;
+        synchronized (this) {
+            final Map<DeploymentModuleIdentifier, DeploymentHolder> modules = new HashMap<DeploymentModuleIdentifier, DeploymentHolder>(this.modules);
+            modules.remove(identifier);
+            this.modules = Collections.unmodifiableMap(modules);
+            listeners = new ArrayList<DeploymentRepositoryListener>(this.listeners);
+        }
         for(final DeploymentRepositoryListener listener : listeners) {
             try {
                 listener.deploymentRemoved(identifier);
@@ -84,7 +94,20 @@ public class DeploymentRepository implements Service<DeploymentRepository> {
     }
 
     public Map<DeploymentModuleIdentifier, ModuleDeployment> getModules() {
+        Map<DeploymentModuleIdentifier, ModuleDeployment> modules = new HashMap<DeploymentModuleIdentifier, ModuleDeployment>();
+        for(Map.Entry<DeploymentModuleIdentifier, DeploymentHolder> entry : this.modules.entrySet()) {
+            modules.put(entry.getKey(), entry.getValue().deployment);
+        }
         return modules;
+    }
+
+    private class DeploymentHolder {
+        final ModuleDeployment deployment;
+        volatile boolean started = false;
+
+        private DeploymentHolder(ModuleDeployment deployment) {
+            this.deployment = deployment;
+        }
     }
 
 }
