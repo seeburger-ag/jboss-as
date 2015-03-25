@@ -127,24 +127,26 @@ public class BundleStartTracker implements Service<BundleStartTracker> {
                     ServiceName key = controller.getName();
                     pendingServices.remove(key);
                     if (pendingServices.isEmpty()) {
-                        synchronized (startedServices) {
+                        synchronized (startedServices) { // SEE #61428 it seems that this was not enough to prevent starting 2 bundles at the same time (the map can become empty more than once), so ...
                             bundlesToStart = new HashMap<ServiceName, Tuple>(startedServices);
                             startedServices.clear();
                         }
                     }
                 if (bundlesToStart != null) {
-                    PackageAdmin packageAdmin = injectedPackageAdmin.getValue();
-                    for (Tuple tuple : bundlesToStart.values()) {
-                        Bundle bundle = tuple.controller.getValue();
-                        Deployment dep = tuple.deployment;
-                        if (dep.isAutoStart()) {
-                            try {
-                                int bundleType = packageAdmin.getBundleType(bundle);
-                                if (bundleType != BUNDLE_TYPE_FRAGMENT) {
-                                    bundle.start(Bundle.START_TRANSIENT | Bundle.START_ACTIVATION_POLICY);
+                   synchronized (BundleStartTracker.class) { // SEE #61428 ...no parallel starting of bundles, never!
+                        PackageAdmin packageAdmin = injectedPackageAdmin.getValue();
+                        for (Tuple tuple : bundlesToStart.values()) {
+                            Bundle bundle = tuple.controller.getValue();
+                            Deployment dep = tuple.deployment;
+                            if (dep.isAutoStart()) {
+                                try {
+                                    int bundleType = packageAdmin.getBundleType(bundle);
+                                    if (bundleType != BUNDLE_TYPE_FRAGMENT) {
+                                        bundle.start(Bundle.START_TRANSIENT | Bundle.START_ACTIVATION_POLICY);
+                                    }
+                                } catch (BundleException ex) {
+                                    ROOT_LOGGER.cannotStart(ex, bundle);
                                 }
-                            } catch (BundleException ex) {
-                                ROOT_LOGGER.cannotStart(ex, bundle);
                             }
                         }
                     }
