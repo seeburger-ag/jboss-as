@@ -967,7 +967,7 @@
         </module-def>
 
         <module-def name="org.jboss.netty">
-            <maven-resource group="io.netty" artifact="netty"/>
+            <maven-resource group="org.jboss.netty" artifact="netty"/>
         </module-def>
 
         <module-def name="org.jboss.osgi.framework">

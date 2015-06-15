@@ -140,7 +140,7 @@
         <version.org.hibernate.commons.annotations>4.0.1.Final</version.org.hibernate.commons.annotations>
         <version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>1.0.1.Final</version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>
         <version.org.hibernate.validator>4.2.0.Final</version.org.hibernate.validator>
-        <version.org.hornetq>2.2.13.SEE5</version.org.hornetq>
+        <version.org.hornetq>2.2.13.SEE4</version.org.hornetq>
         <version.org.infinispan>5.1.2.FINAL</version.org.infinispan>
         <version.org.jacorb>2.3.1.jbossorg-1</version.org.jacorb>
         <version.org.javassist>3.15.0-GA</version.org.javassist>
@@ -177,7 +177,7 @@
         <version.org.jboss.mod_cluster>1.2.0.Final</version.org.jboss.mod_cluster>
         <version.org.jboss.modules.jboss-modules>1.1.4.SEE1</version.org.jboss.modules.jboss-modules>
         <version.org.jboss.msc.jboss-msc>1.0.2.SEE1</version.org.jboss.msc.jboss-msc>
-        <version.org.jboss.netty>3.9.8.Final</version.org.jboss.netty>
+        <version.org.jboss.netty>3.2.6.Final</version.org.jboss.netty>
         <version.org.jboss.osgi.framework>1.1.8.SEE1</version.org.jboss.osgi.framework>
         <version.org.jboss.osgi.http>1.0.5</version.org.jboss.osgi.http>
         <version.org.jboss.osgi.logging>1.0.0</version.org.jboss.osgi.logging>
@@ -4343,7 +4343,7 @@
             </dependency>
 
             <dependency>
-                <groupId>io.netty</groupId>
+                <groupId>org.jboss.netty</groupId>
                 <artifactId>netty</artifactId>
                 <version>${version.org.jboss.netty}</version>
             </dependency>
