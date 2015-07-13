@@ -23,6 +23,7 @@ import javax.ejb.ScheduleExpression;
 import javax.ejb.TimerHandle;
 import javax.interceptor.InvocationContext;
 import javax.naming.Context;
+import javax.transaction.xa.Xid;
 import javax.xml.stream.Location;
 
 import org.jboss.as.controller.PathAddress;
@@ -2028,6 +2029,10 @@ public interface EjbMessages {
      */
     @Message(id = 14558, value = "No EjbContext available as no EJB invocation is active")
     IllegalStateException noEjbContextAvailable();
+
+
+    @Message(id = 14570, value = "No subordinate transaction present for xid %s")
+    RuntimeException noSubordinateTransactionPresentForXid(Xid xid);
 
 
     // STOP!!! Don't add message ids greater that 14599!!! If you need more first check what EjbLogger is
