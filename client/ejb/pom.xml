@@ -46,7 +46,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.seeburger.as</groupId>
+            <groupId>org.jboss</groupId>
             <artifactId>jboss-ejb-client</artifactId>
         </dependency>
 

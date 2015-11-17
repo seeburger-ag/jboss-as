@@ -22,6 +22,7 @@
 
 package org.jboss.as.ejb3.remote;
 
+import org.jboss.ejb.client.DeploymentNodeSelector;
 import org.jboss.ejb.client.EJBClientConfiguration;
 import org.xnio.OptionMap;
 
@@ -30,6 +31,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Jaikiran Pai
@@ -37,6 +39,8 @@ import java.util.Map;
 public class JBossEJBClientXmlConfiguration implements EJBClientConfiguration {
 
     private final Map<String, ClusterConfiguration> clusterConfigs = new HashMap<String, ClusterConfiguration>();
+    private static final long ejbInvocationTimeout = Long.getLong("JBossEJBClientXmlConfiguration.ejbInvocationTimeout", -1).longValue();
+    private static final long ejbReconnectTasksTimeout = Long.getLong("JBossEJBClientXmlConfiguration.ejbReconnectTasksTimeout", -1).longValue();
 
     @Override
     public String getEndpointName() {
@@ -67,7 +71,8 @@ public class JBossEJBClientXmlConfiguration implements EJBClientConfiguration {
     public Iterator<RemotingConnectionConfiguration> getConnectionConfigurations() {
         // The jboss-ejb-client.xml will *not* be used for auto creating connections to remote servers.
         // Instead we let the remote-outbound-connection to handle the connection creation/configuration
-        return Collections.EMPTY_SET.iterator();
+        final Set<RemotingConnectionConfiguration> set = Collections.emptySet();
+        return set.iterator();
     }
 
     @Override
@@ -82,6 +87,21 @@ public class JBossEJBClientXmlConfiguration implements EJBClientConfiguration {
 
     public void addClusterConfiguration(final EJBClientClusterConfig clusterConfig) {
         this.clusterConfigs.put(clusterConfig.getClusterName(), clusterConfig);
+    }
+
+    @Override
+    public long getInvocationTimeout() {
+        return ejbInvocationTimeout;
+    }
+
+    @Override
+    public long getReconnectTasksTimeout() {
+        return ejbReconnectTasksTimeout;
+    }
+
+    @Override
+    public DeploymentNodeSelector getDeploymentNodeSelector() {
+        return null;
     }
 
 }

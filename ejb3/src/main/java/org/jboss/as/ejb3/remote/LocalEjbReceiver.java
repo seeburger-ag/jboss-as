@@ -103,6 +103,13 @@ public class LocalEjbReceiver extends EJBReceiver implements Service<LocalEjbRec
         this.contexts.add(context);
     }
 
+
+    @Override
+    protected void disassociate(EJBReceiverContext context) {
+        this.contexts.remove(context);
+    }
+
+
     @Override
     protected void processInvocation(final EJBClientInvocationContext invocation, final EJBReceiverInvocationContext receiverContext) throws Exception {
         final EJBLocator locator = invocation.getLocator();

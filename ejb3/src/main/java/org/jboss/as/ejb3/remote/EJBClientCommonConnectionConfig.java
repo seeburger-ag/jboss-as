@@ -27,7 +27,6 @@ import org.jboss.as.domain.management.SecurityRealm;
 import org.jboss.as.domain.management.security.SecurityRealmService;
 import org.jboss.as.ejb3.EjbLogger;
 import org.jboss.ejb.client.EJBClientConfiguration;
-import org.jboss.logging.Logger;
 import org.jboss.msc.service.ServiceController;
 import org.jboss.msc.service.ServiceName;
 import org.jboss.msc.service.ServiceRegistry;
@@ -48,11 +47,12 @@ import java.util.Properties;
  */
 class EJBClientCommonConnectionConfig implements EJBClientConfiguration.CommonConnectionCreationConfiguration {
 
-    private static final Logger logger = Logger.getLogger(EJBClientCommonConnectionConfig.class);
+//    private static final Logger logger = Logger.getLogger(EJBClientCommonConnectionConfig.class);
 
     private OptionMap connectionCreationOptions = OptionMap.EMPTY;
     private OptionMap channelCreationOptions = OptionMap.EMPTY;
     private long connectionTimeout = 5000;
+    private static final boolean isConnectEagerly = Boolean.getBoolean("EJBClientCommonConnectionConfig.connect.eagerly");
     private CallbackHandlerProvider callbackHandlerProvider;
 
     @Override
@@ -73,6 +73,11 @@ class EJBClientCommonConnectionConfig implements EJBClientConfiguration.CommonCo
     @Override
     public OptionMap getChannelCreationOptions() {
         return this.channelCreationOptions;
+    }
+
+    @Override
+    public boolean isConnectEagerly() {
+        return isConnectEagerly;
     }
 
     protected void setChannelCreationOptions(final OptionMap channelCreationOptions) {
@@ -134,7 +139,7 @@ class EJBClientCommonConnectionConfig implements EJBClientConfiguration.CommonCo
         }
     }
 
-    private class AnonymousCallbackHandler implements CallbackHandler {
+    protected class AnonymousCallbackHandler implements CallbackHandler {
 
         public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
             for (Callback current : callbacks) {
