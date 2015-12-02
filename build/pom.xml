@@ -1212,7 +1212,7 @@
                 </dependency>
 
                 <dependency>
-                    <groupId>org.jboss.remoting3</groupId>
+                    <groupId>com.seeburger.fork</groupId>
                     <artifactId>jboss-remoting</artifactId>
                 </dependency>
 

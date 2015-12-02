@@ -186,7 +186,7 @@
         <version.org.jboss.osgi.spi>3.0.1.Final</version.org.jboss.osgi.spi>
         <version.org.jboss.osgi.vfs>1.2.1.Final</version.org.jboss.osgi.vfs>
         <version.org.jboss.remote-naming>1.0.11.Final</version.org.jboss.remote-naming>
-        <version.org.jboss.remoting3>3.2.19.GA</version.org.jboss.remoting3>
+        <version.org.jboss.remoting3>3.2.19.SEE1</version.org.jboss.remoting3>
         <version.org.jboss.remotingjmx.remoting-jmx>1.0.5.SEE2</version.org.jboss.remotingjmx.remoting-jmx>
         <version.org.jboss.resteasy>3.0.7.Final</version.org.jboss.resteasy>
         <version.org.jboss.sasl>1.0.0.Final</version.org.jboss.sasl>
@@ -4453,7 +4453,7 @@
             </dependency>
 
             <dependency>
-                <groupId>org.jboss.remoting3</groupId>
+                <groupId>com.seeburger.fork</groupId>
                 <artifactId>jboss-remoting</artifactId>
                 <version>${version.org.jboss.remoting3}</version>
             </dependency>

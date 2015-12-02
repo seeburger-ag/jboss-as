@@ -249,7 +249,7 @@
         </module-def>
 
         <module-def name="org.jboss.remoting3">
-            <maven-resource group="org.jboss.remoting3" artifact="jboss-remoting"/>
+            <maven-resource group="com.seeburger.fork" artifact="jboss-remoting"/>
         </module-def>
 
         <module-def name="org.jboss.remoting3.remoting-jmx">
