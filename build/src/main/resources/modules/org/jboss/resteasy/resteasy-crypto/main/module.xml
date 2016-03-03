@@ -36,5 +36,7 @@
         <module name="org.jboss.resteasy.resteasy-jaxrs"/>
         <module name="org.bouncycastle.bcprov" export="true"/>
         <module name="org.bouncycastle.bcmail" export="true"/>
+        <module name="javax.activation.api"/>
+        <module name="org.jboss.logging"/>
     </dependencies>
 </module>
