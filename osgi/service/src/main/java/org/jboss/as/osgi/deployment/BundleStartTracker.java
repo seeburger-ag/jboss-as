@@ -44,6 +44,7 @@ import org.osgi.service.packageadmin.PackageAdmin;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 import static org.jboss.as.osgi.OSGiLogger.ROOT_LOGGER;
 import static org.jboss.as.osgi.service.FrameworkBootstrapService.FRAMEWORK_BASE_NAME;
@@ -59,10 +60,20 @@ public class BundleStartTracker implements Service<BundleStartTracker> {
 
     public static final ServiceName SERVICE_NAME = FRAMEWORK_BASE_NAME.append("starttracker");
 
+    /**
+     * Externally set No. of bundles to expect.
+     * In case not set, will fall-back on variant implemented before for Bug#61428.
+     * SEEBURGER Bug#67528
+     */
+    private static final long TOTAL_BUNDLES_TO_BE_INSTALLED = Long.getLong("bundle.count", -1);
+
+
     private final InjectedValue<PackageAdmin> injectedPackageAdmin = new InjectedValue<PackageAdmin>();
     private final Map<ServiceName, Tuple> pendingServices = new ConcurrentHashMap<ServiceName, Tuple>();
     private final Map<ServiceName, Tuple> startedServices = new ConcurrentHashMap<ServiceName, Tuple>();
     private volatile ServiceContainer serviceContainer;
+
+    private final AtomicLong bundlesStartedSoFar = new AtomicLong();
 
     public static final ServiceController<?> addService(ServiceTarget serviceTarget) {
         BundleStartTracker service = new BundleStartTracker();
@@ -94,9 +105,12 @@ public class BundleStartTracker implements Service<BundleStartTracker> {
     }
 
     @SuppressWarnings("unchecked")
-    void addInstalledBundle(ServiceName serviceName, Deployment deployment) {
+    void addInstalledBundle(ServiceName serviceName,final Deployment deployment) {
         ServiceController<Bundle> controller = (ServiceController<Bundle>) serviceContainer.getRequiredService(serviceName);
-        pendingServices.put(serviceName, new Tuple(controller, deployment));
+        if(TOTAL_BUNDLES_TO_BE_INSTALLED == -1) {
+            // fall-back on less safe way of checking
+            pendingServices.put(serviceName, new Tuple(controller, deployment));
+        }
         controller.addListener(new AbstractServiceListener<Bundle>() {
 
             @Override
@@ -112,16 +126,64 @@ public class BundleStartTracker implements Service<BundleStartTracker> {
                     switch (transition.getAfter()) {
                         case UP:
                             ServiceName key = controller.getName();
-                            Tuple value = pendingServices.get(key);
+                            Tuple value;
+                            if(TOTAL_BUNDLES_TO_BE_INSTALLED == -1) {
+                                // fall-back on less safe way of checking
+                                value = pendingServices.get(key);
+                            }
+                            else {
+                                value = new Tuple(controller, deployment);
+                            }
                             startedServices.put(key, value);
                             // fall thru
                         case START_FAILED:
-                            processService(controller);
+                            if(TOTAL_BUNDLES_TO_BE_INSTALLED == -1) {
+                                // fall-back on less safe way of checking
+                                processServiceNotSetBundleCountProperty(controller);
+                            }
+                            else {
+                                processService(controller);
+                            }
                     }
                 }
             }
 
             private void processService(ServiceController<? extends Bundle> controller) {
+                controller.removeListener(this);
+                Map<ServiceName, Tuple> bundlesToStart = null;
+                    if (bundlesStartedSoFar.incrementAndGet() == TOTAL_BUNDLES_TO_BE_INSTALLED) {
+                            bundlesToStart = new HashMap<ServiceName, Tuple>(startedServices);
+                            startedServices.clear();
+                    }
+                    else {
+                        if (ROOT_LOGGER.isDebugEnabled()) {
+                            final long waitingBundlesCount = TOTAL_BUNDLES_TO_BE_INSTALLED - bundlesStartedSoFar.get();
+                            if (waitingBundlesCount % 50 == 0) {
+                                ROOT_LOGGER.debugf("Waiting for %d more bundles to be installed. %d in total expected.",
+                                                   waitingBundlesCount, TOTAL_BUNDLES_TO_BE_INSTALLED);
+                            }
+                        }
+                    }
+                if (bundlesToStart != null) {
+                        PackageAdmin packageAdmin = injectedPackageAdmin.getValue();
+                        for (Tuple tuple : bundlesToStart.values()) {
+                            Bundle bundle = tuple.controller.getValue();
+                            Deployment dep = tuple.deployment;
+                            if (dep.isAutoStart()) {
+                                try {
+                                    int bundleType = packageAdmin.getBundleType(bundle);
+                                    if (bundleType != BUNDLE_TYPE_FRAGMENT) {
+                                        bundle.start(Bundle.START_TRANSIENT | Bundle.START_ACTIVATION_POLICY);
+                                    }
+                                } catch (BundleException ex) {
+                                    ROOT_LOGGER.cannotStart(ex, bundle);
+                                }
+                            }
+                        }
+                    }
+                }
+
+            private void processServiceNotSetBundleCountProperty(ServiceController<? extends Bundle> controller) {
                 controller.removeListener(this);
                 Map<ServiceName, Tuple> bundlesToStart = null;
                     ServiceName key = controller.getName();
