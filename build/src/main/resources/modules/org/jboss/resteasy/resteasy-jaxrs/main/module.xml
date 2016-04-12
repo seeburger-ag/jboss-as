@@ -38,7 +38,6 @@
         <module name="org.slf4j" />
         <module name="javax.servlet.api"/>
         <module name="javax.validation.api"/>
-        <module name="javax.xml.bind.api"/>
         <module name="org.hibernate.validator"/>
         <!--module name="resteasy-validator-provider-10"/-->
 
@@ -46,7 +45,6 @@
         <module name="org.apache.httpcomponents" export="true"/>
         <module name="org.apache.commons.io"/>
         <module name="org.jboss.resteasy.resteasy-hibernatevalidator-provider" services="export" export="true"/>
-        <module name="org.jboss.logging"/>
-
+        <module name="org.jboss.logging" />
     </dependencies>
 </module>
