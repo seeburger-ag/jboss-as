@@ -60,7 +60,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>org.jboss.spec.javax.annotation</groupId>
-                                    <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+                                    <artifactId>jboss-annotations-api_1.1_spec</artifactId>
                                 </artifactItem>
                             </artifactItems>
                             <outputDirectory>${project.build.directory}/endorsed</outputDirectory>
@@ -155,7 +155,7 @@
         <!-- Needed for @Resource(lookup=) -->
         <dependency>
             <groupId>org.jboss.spec.javax.annotation</groupId>
-            <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+            <artifactId>jboss-annotations-api_1.1_spec</artifactId>
         </dependency>
 
         <dependency>
