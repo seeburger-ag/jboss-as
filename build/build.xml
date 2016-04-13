@@ -997,7 +997,7 @@
         </module-def>
 
         <module-def name="org.jboss.remote-naming">
-            <maven-resource group="org.jboss" artifact="jboss-remote-naming"/>
+            <maven-resource group="com.seeburger.fork" artifact="jboss-remote-naming"/>
         </module-def>
 
         <module-def name="org.jboss.resteasy.resteasy-atom-provider">

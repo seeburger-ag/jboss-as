@@ -52,7 +52,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss</groupId>
+            <groupId>com.seeburger.fork</groupId>
             <artifactId>jboss-remote-naming</artifactId>
             <exclusions>
                 <exclusion>
