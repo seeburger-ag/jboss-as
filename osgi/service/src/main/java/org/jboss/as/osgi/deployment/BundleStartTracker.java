@@ -151,7 +151,7 @@ public class BundleStartTracker implements Service<BundleStartTracker> {
             private void processService(ServiceController<? extends Bundle> controller) {
                 controller.removeListener(this);
                 Map<ServiceName, Tuple> bundlesToStart = null;
-                    if (bundlesStartedSoFar.incrementAndGet() == TOTAL_BUNDLES_TO_BE_INSTALLED) {
+                    if (bundlesStartedSoFar.incrementAndGet() >= TOTAL_BUNDLES_TO_BE_INSTALLED) {
                             bundlesToStart = new HashMap<ServiceName, Tuple>(startedServices);
                             startedServices.clear();
                     }
