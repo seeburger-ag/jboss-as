@@ -236,8 +236,17 @@ public class PersistenceUnitDeploymentProcessor implements DeploymentUnitProcess
             final Module module = deploymentUnit.getAttachment(Attachments.MODULE);
             final EEModuleDescription eeModuleDescription = deploymentUnit.getAttachment(org.jboss.as.ee.component.Attachments.EE_MODULE_DESCRIPTION);
             final Collection<ComponentDescription> components = eeModuleDescription.getComponentDescriptions();
-            if (module == null)
-                throw MESSAGES.failedToGetModuleAttachment(phaseContext.getDeploymentUnit());
+            if (module == null) {
+                // SEEBURGER: If an OSGi-bundle contains a persistence.xml we end-up here.
+                // Avoid deployment exception in this case by default
+                if (Boolean.getBoolean("org.jboss.as.jpa.processor.PersistenceUnitDeploymentProcessor.throw-error-on-missing-module"))
+                {
+                    // just to have the old behavior available
+                    throw MESSAGES.failedToGetModuleAttachment(phaseContext.getDeploymentUnit());
+                }
+                JPA_LOGGER.tracef("Failed to get module attachment for deployment %s. Continuing.", deploymentUnit.getName());
+                return;
+            }
 
             final ServiceTarget serviceTarget = phaseContext.getServiceTarget();
             final ModuleClassLoader classLoader = module.getClassLoader();
