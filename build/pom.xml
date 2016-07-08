@@ -633,6 +633,12 @@
                 <dependency>
                     <groupId>com.seeburger.fork</groupId>
                     <artifactId>hibernate-infinispan</artifactId>
+                            <exclusions>
+                        <exclusion>
+                            <groupId>*</groupId>
+                            <artifactId>*</artifactId>
+                        </exclusion>
+                    </exclusions>
                 </dependency>
 
                 <dependency>
