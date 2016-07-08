@@ -148,7 +148,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>com.seeburger.fork</groupId>
             <artifactId>hibernate-infinispan</artifactId>
         </dependency>
 
