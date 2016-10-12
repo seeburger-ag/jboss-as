@@ -508,7 +508,9 @@
             <maven-resource group="commons-lang" artifact="commons-lang"/>
         </module-def>
 
-        <module-def name="org.apache.commons.logging"/>
+        <module-def name="org.apache.commons.logging">
+            <maven-resource group="commons-logging" artifact="commons-logging"/>
+        </module-def>
 
         <module-def name="org.apache.commons.pool">
             <maven-resource group="commons-pool" artifact="commons-pool"/>

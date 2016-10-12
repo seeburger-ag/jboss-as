@@ -84,6 +84,7 @@
         <version.commons-io>2.1</version.commons-io>
         <version.commons-configuration>1.6</version.commons-configuration>
         <version.commons-lang>2.6</version.commons-lang>
+        <version.commons-logging>1.2</version.commons-logging>
         <version.commons-pool>1.5.7</version.commons-pool>
         <version.com.google.guava>11.0.2</version.com.google.guava>
         <version.com.fasterxml.jackson>2.3.2</version.com.fasterxml.jackson>
@@ -444,7 +445,6 @@
                                             <exclude>com.google.inject:guice</exclude>
                                             <exclude>com.gwtplatform:gwtp-all</exclude>
                                             <exclude>commons-httpclient:commons-httpclient</exclude>
-                                            <exclude>commons-logging:commons-logging</exclude>
                                             <exclude>concurrent:concurrent</exclude>
                                             <exclude>jacorb:jacorb</exclude>
                                             <exclude>javassist:javassist</exclude>
@@ -1316,6 +1316,12 @@
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${version.commons-lang}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${version.commons-logging}</version>
             </dependency>
 
             <dependency>
