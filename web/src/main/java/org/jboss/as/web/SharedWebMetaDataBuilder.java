@@ -165,7 +165,15 @@ class SharedWebMetaDataBuilder {
         initParams.add(createParameter("development", config.require(DEVELOPMENT).asString()));
         initParams.add(createParameter("keepgenerated", config.require(KEEP_GENERATED).asString()));
         initParams.add(createParameter("trimSpaces", config.require(TRIM_SPACES).asString()));
-        initParams.add(createParameter("enablePooling", config.require(TAG_POOLING).asString()));
+        // SEE Bug #45737 disable tag-pooling to avoid memory leaks
+        if (Boolean.getBoolean("org.jboss.as.web.SharedWebMetaDataBuilder.enableTagPooling"))
+        {
+            initParams.add(createParameter("enablePooling", config.require(TAG_POOLING).asString()));
+        }
+        else
+        {
+            initParams.add(createParameter("enablePooling", "false"));
+        }
         initParams.add(createParameter("mappedfile", config.require(MAPPED_FILE).asString()));
         initParams.add(createParameter("checkInterval", config.require(CHECK_INTERVAL).asString()));
         initParams.add(createParameter("modificationTestInterval", config.require(MODIFICATION_TEST_INTERVAL).asString()));
