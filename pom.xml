@@ -138,7 +138,7 @@
         <!-- Replaces version.org.jboss.web.jasper-jdt -->
         <version.org.eclipse.jdt.core.compiler.ecj>4.3.1</version.org.eclipse.jdt.core.compiler.ecj>
         <version.org.hibernate>4.0.1.Final</version.org.hibernate>
-        <version.org.hibernate-infinispan>4.0.1.SEE2</version.org.hibernate-infinispan>
+        <version.org.hibernate-infinispan>4.0.1.SEE3</version.org.hibernate-infinispan>
         <version.org.hibernate.commons.annotations>4.0.1.Final</version.org.hibernate.commons.annotations>
         <version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>1.0.1.Final</version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>
         <version.org.hibernate.validator>4.2.0.Final</version.org.hibernate.validator>
