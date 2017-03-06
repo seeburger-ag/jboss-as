@@ -621,7 +621,7 @@
                 </dependency>
 
                 <dependency>
-                    <groupId>org.hibernate</groupId>
+                    <groupId>com.seeburger.fork</groupId>
                     <artifactId>hibernate-core</artifactId>
                 </dependency>
 
