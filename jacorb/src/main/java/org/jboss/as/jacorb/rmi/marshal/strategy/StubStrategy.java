@@ -318,8 +318,8 @@ public class StubStrategy {
                     // Ignore the reposId parameter and use the id
                     // returned by the IDL-generated helper class
                     java.lang.reflect.Method idMethod =
-                            helperClass.getMethod("id", null);
-                    this.reposId = (String) idMethod.invoke(null, null);
+                            helperClass.getMethod("id", (Class[]) null);
+                    this.reposId = (String) idMethod.invoke(null, (Object[]) null);
                 } catch (ClassNotFoundException e) {
                     throw JacORBMessages.MESSAGES.errorLoadingClass(helperClassName, e);
                 } catch (NoSuchMethodException e) {

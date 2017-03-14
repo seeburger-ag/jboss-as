@@ -58,6 +58,17 @@
 	<classpathentry kind="src" path="jmx/src/main/java"/>
 	<classpathentry kind="src" path="jmx/src/test/java"/>
 	<classpathentry kind="src" path="testsuite/shared/src/main/java"/>
+	<classpathentry kind="src" path="clustering/web-infinispan/src/main/java"/>
+	<classpathentry kind="src" path="jacorb/src/main/java"/>
+	<classpathentry kind="src" path="jacorb/src/test/java"/>
+	<classpathentry kind="src" path="jpa/hibernate3/src/main/java"/>
+	<classpathentry kind="src" path="jpa/hibernate4/src/main/java"/>
+	<classpathentry kind="src" path="jpa/openjpa/src/main/java"/>
+	<classpathentry kind="src" path="jpa/util/src/main/java"/>
+	<classpathentry kind="src" path="modcluster/src/main/java"/>
+	<classpathentry kind="src" path="modcluster/src/test/java"/>
+	<classpathentry kind="src" path="arquillian/container-managed/src/main/java"/>
+	<classpathentry kind="src" path="arquillian/container-managed/src/test/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>

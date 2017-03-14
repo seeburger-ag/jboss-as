@@ -77,7 +77,7 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.spec.javax.transaction</groupId>
-            <artifactId>jboss-transaction-api_1.1_spec</artifactId>
+            <artifactId>jboss-transaction-api_1.2_spec</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jboss.logging</groupId>
@@ -109,7 +109,8 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.spec.javax.interceptor</groupId>
-            <artifactId>jboss-interceptors-api_1.1_spec</artifactId>
+            <artifactId>jboss-interceptors-api_1.2_spec</artifactId>
+            <version>${version.org.jboss.spec.javax.interceptor.jboss-interceptors-api_1.2_spec}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
