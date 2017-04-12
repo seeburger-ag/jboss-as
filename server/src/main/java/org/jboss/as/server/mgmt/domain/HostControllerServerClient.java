@@ -22,6 +22,7 @@
 
 package org.jboss.as.server.mgmt.domain;
 
+
 import java.io.DataInput;
 import java.io.File;
 import java.io.IOException;
@@ -72,6 +73,7 @@ import javax.security.auth.callback.UnsupportedCallbackException;
 import javax.security.sasl.RealmCallback;
 import javax.security.sasl.RealmChoiceCallback;
 
+
 /**
  * Client used to interact with the local HostController.
  * The HC counterpart is ServerToHostOperationHandler
@@ -84,6 +86,11 @@ public class HostControllerServerClient implements Service<HostControllerServerC
 
     public static final ServiceName SERVICE_NAME = ServiceName.JBOSS.append("host", "controller", "client");
     private static final String JBOSS_LOCAL_USER = "JBOSS-LOCAL-USER";
+
+    /**
+     * Default 30.000 milliseconds.
+     */
+    private static final long HOST_CONTROLLER_CONNECTION_TIMEOUT = Long.getLong("org.jboss.as.server.mgmt.domain.HostControllerServerClient.HOST_CONTROLLER_CONNECTION_TIMEOUT", 30000);
 
     private final InjectedValue<ModelController> controller = new InjectedValue<ModelController>();
     private final InjectedValue<RemoteFileRepository> remoteFileRepositoryValue = new InjectedValue<RemoteFileRepository>();
@@ -111,6 +118,7 @@ public class HostControllerServerClient implements Service<HostControllerServerC
         this.authKey = authKey;
     }
 
+
     /** {@inheritDoc} */
     @Override
     public synchronized void start(final StartContext context) throws StartException {
@@ -120,7 +128,7 @@ public class HostControllerServerClient implements Service<HostControllerServerC
         try {
             final ProtocolChannelClient.Configuration configuration = new ProtocolChannelClient.Configuration();
             configuration.setEndpoint(endpointInjector.getValue());
-            configuration.setConnectionTimeout(15000);
+            configuration.setConnectionTimeout(HOST_CONTROLLER_CONNECTION_TIMEOUT);
             configuration.setUri(new URI("remote://" + hostName + ":" + port));
 
             final OptionMap original = configuration.getOptionMap();
@@ -146,10 +154,12 @@ public class HostControllerServerClient implements Service<HostControllerServerC
                     started();
                 }
 
+
                 @Override
                 public void failed(Exception e) {
                     context.failed(ServerMessages.MESSAGES.failedToConnectToHC(e));
                 }
+
 
                 @Override
                 public void cancelled() {
@@ -162,11 +172,13 @@ public class HostControllerServerClient implements Service<HostControllerServerC
         }
     }
 
+
     /** {@inheritDoc} */
     @Override
     public synchronized void stop(StopContext context) {
         StreamUtils.safeClose(connection);
     }
+
 
     /**
      * Reconnect to the HC.
@@ -188,10 +200,12 @@ public class HostControllerServerClient implements Service<HostControllerServerC
                 }
             }
 
+
             @Override
             public void failed(Exception e) {
                 //
             }
+
 
             @Override
             public void cancelled() {
@@ -199,6 +213,7 @@ public class HostControllerServerClient implements Service<HostControllerServerC
             }
         });
     }
+
 
     /**
      * Set the restart required flag.
@@ -211,6 +226,7 @@ public class HostControllerServerClient implements Service<HostControllerServerC
         controller.execute(operation, OperationMessageHandler.logging, ModelController.OperationTransactionControl.COMMIT, OperationAttachments.EMPTY);
     }
 
+
     /**
      * Get the server name.
      *
@@ -219,6 +235,7 @@ public class HostControllerServerClient implements Service<HostControllerServerC
     public String getServerName(){
         return serverName;
     }
+
 
     /**
      * Signal that the server is started.
@@ -231,6 +248,7 @@ public class HostControllerServerClient implements Service<HostControllerServerC
             throw new RuntimeException(e);
         }
     }
+
 
     /** {@inheritDoc} */
     public synchronized HostControllerServerClient getValue() throws IllegalStateException {
@@ -253,10 +271,12 @@ public class HostControllerServerClient implements Service<HostControllerServerC
 
         private final String message = ""; // started / failed message
 
+
         @Override
         public byte getOperationType() {
             return DomainServerProtocol.SERVER_STARTED_REQUEST;
         }
+
 
         @Override
         protected void sendRequest(ActiveOperation.ResultHandler<Void> resultHandler, ManagementRequestContext<Void> voidManagementRequestContext, FlushableDataOutput output) throws IOException {
@@ -265,6 +285,7 @@ public class HostControllerServerClient implements Service<HostControllerServerC
             // TODO update the API to better handle one-way messages
             resultHandler.done(null);
         }
+
 
         @Override
         public void handleRequest(DataInput input, ActiveOperation.ResultHandler<Void> resultHandler, ManagementRequestContext<Void> voidManagementRequestContext) throws IOException {
@@ -282,21 +303,24 @@ public class HostControllerServerClient implements Service<HostControllerServerC
             this.localDeploymentFolder = localDeploymentFolder;
         }
 
+
         @Override
         public byte getOperationType() {
             return DomainServerProtocol.GET_FILE_REQUEST;
         }
 
+
         @Override
         protected void sendRequest(ActiveOperation.ResultHandler<File> resultHandler, ManagementRequestContext<Void> context, FlushableDataOutput output) throws IOException {
-            //The root id does not matter here
+            // The root id does not matter here
             ServerToHostRemoteFileRequestAndHandler.INSTANCE.sendRequest(output, (byte)0, hash);
         }
+
 
         @Override
         public void handleRequest(DataInput input, ActiveOperation.ResultHandler<File> resultHandler, ManagementRequestContext<Void> context) throws IOException {
             try {
-                File first = new File(localDeploymentFolder, hash.substring(0,2));
+                File first = new File(localDeploymentFolder, hash.substring(0, 2));
                 File localPath = new File(first, hash.substring(2));
                 ServerToHostRemoteFileRequestAndHandler.INSTANCE.handleResponse(input, localPath, ServerLogger.ROOT_LOGGER, resultHandler, context);
                 resultHandler.done(null);
@@ -331,16 +355,16 @@ public class HostControllerServerClient implements Service<HostControllerServerC
         public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
             for (Callback current : callbacks) {
                 if (current instanceof RealmCallback) {
-                    RealmCallback rcb = (RealmCallback) current;
+                    RealmCallback rcb = (RealmCallback)current;
                     String defaultText = rcb.getDefaultText();
                     rcb.setText(defaultText); // For now just use the realm suggested.
                 } else if (current instanceof RealmChoiceCallback) {
                     throw new UnsupportedCallbackException(current, "Realm choice not currently supported.");
                 } else if (current instanceof NameCallback) {
-                    NameCallback ncb = (NameCallback) current;
+                    NameCallback ncb = (NameCallback)current;
                     ncb.setName(userName);
                 } else if (current instanceof PasswordCallback) {
-                    PasswordCallback pcb = (PasswordCallback) current;
+                    PasswordCallback pcb = (PasswordCallback)current;
                     pcb.setPassword(new String(authKey).toCharArray());
                 } else {
                     throw new UnsupportedCallbackException(current);
