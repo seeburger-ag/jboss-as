@@ -44,7 +44,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class ClientConfigurationImpl implements ModelControllerClientConfiguration {
 
-    private static final int DEFAULT_MAX_THREADS = getSystemProperty("org.jboss.as.controller.client.max-threads", 6);
+    private static final int DEFAULT_MAX_THREADS = getSystemProperty("org.jboss.as.controller.client.max-threads", 10);
+
+    /**
+     * Default 30.000 milliseconds.
+     */
+    private static final int DEFAULT_CONNECTION_TIMEOUT = Integer.getInteger("org.jboss.as.controller.client.connection-timeout", 30000).intValue();
 
     // Global count of created pools
     private static final AtomicInteger executorCount = new AtomicInteger();
@@ -103,7 +108,7 @@ public class ClientConfigurationImpl implements ModelControllerClientConfigurati
 
     @Override
     public int getConnectionTimeout() {
-        return 5000;
+        return DEFAULT_CONNECTION_TIMEOUT;
     }
 
     @Override
