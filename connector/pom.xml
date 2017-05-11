@@ -93,7 +93,7 @@
             <artifactId>ironjacamar-core-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.ironjacamar</groupId>
+            <groupId>com.seeburger.fork</groupId>
             <artifactId>ironjacamar-core-impl</artifactId>
         </dependency>
         <dependency>

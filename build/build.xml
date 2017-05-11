@@ -939,7 +939,7 @@
 
         <module-def name="org.jboss.ironjacamar.impl">
             <maven-resource group="org.jboss.ironjacamar" artifact="ironjacamar-common-impl"/>
-            <maven-resource group="org.jboss.ironjacamar" artifact="ironjacamar-core-impl"/>
+            <maven-resource group="com.seeburger.fork" artifact="ironjacamar-core-impl"/>
             <maven-resource group="org.jboss.ironjacamar" artifact="ironjacamar-deployers-common"/>
             <maven-resource group="org.jboss.ironjacamar" artifact="ironjacamar-validator"/>
         </module-def>
