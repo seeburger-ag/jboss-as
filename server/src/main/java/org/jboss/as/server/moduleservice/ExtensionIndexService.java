@@ -131,7 +131,7 @@ public final class ExtensionIndexService implements Service<ExtensionIndex>, Ext
                             VFSUtils.safeClose(jarFile);
                         }
                     } catch (IOException e) {
-                        log.warning("Failed to process JAR manifest for " + jar, e);
+                        log.warn("Failed to process JAR manifest for " + jar, e);
                         continue;
                     }
         }
