@@ -90,6 +90,9 @@ public final class ExtensionIndexService implements Service<ExtensionIndex>, Ext
                         final JarFile jarFile = new JarFile(jar);
                         try {
                             final Manifest manifest = jarFile.getManifest();
+                            if (manifest == null) {
+                                throw new IOException("Manifest not found for JAR " + jar);
+                            }
                             final Attributes mainAttributes = manifest.getMainAttributes();
                             final String extensionName = mainAttributes.getValue(Attributes.Name.EXTENSION_NAME);
                             if (extensionName == null) {
@@ -128,7 +131,7 @@ public final class ExtensionIndexService implements Service<ExtensionIndex>, Ext
                             VFSUtils.safeClose(jarFile);
                         }
                     } catch (IOException e) {
-                        log.debugf("Failed to process JAR manifest for %s: %s", jar, e);
+                        log.warning("Failed to process JAR manifest for " + jar, e);
                         continue;
                     }
         }
