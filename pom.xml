@@ -137,8 +137,8 @@
         <version.org.codehaus.woodstox.woodstox-core-asl>4.1.1</version.org.codehaus.woodstox.woodstox-core-asl>
         <!-- Replaces version.org.jboss.web.jasper-jdt -->
         <version.org.eclipse.jdt.core.compiler.ecj>4.3.1</version.org.eclipse.jdt.core.compiler.ecj>
-        <version.org.hibernate>4.0.1.SEE7</version.org.hibernate>
-        <version.org.hibernate-infinispan>4.0.1.SEE7</version.org.hibernate-infinispan>
+        <version.org.hibernate>4.0.1.SEE8</version.org.hibernate>
+        <version.org.hibernate-infinispan>4.0.1.SEE8</version.org.hibernate-infinispan>
         <version.org.hibernate-entitymanager>4.0.1.Final</version.org.hibernate-entitymanager>
         <version.org.hibernate-envers>4.0.1.Final</version.org.hibernate-envers>
         <version.org.hibernate.commons.annotations>4.0.1.Final</version.org.hibernate.commons.annotations>
