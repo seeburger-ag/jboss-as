@@ -54,7 +54,7 @@ public interface OSGiLogger extends BasicLogger {
 
     OSGiLogger ROOT_LOGGER = Logger.getMessageLogger(OSGiLogger.class, OSGiLogger.class.getPackage().getName());
 
-    @LogMessage(level = ERROR)
+    @LogMessage(level = WARN)
     @Message(id = 11900, value = "Cannot start bundle: %s")
     void cannotStart(@Cause Throwable cause, Bundle bundle);
 
