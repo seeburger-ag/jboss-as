@@ -176,7 +176,7 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
     public void addModule(final Module module) {
         ServiceName moduleServiceName = getModuleServiceName(module.getIdentifier());
         if (serviceContainer.getService(moduleServiceName) == null) {
-            ROOT_LOGGER.debugf("Add module to loader: %s", module.getIdentifier());
+            ROOT_LOGGER.infof("Add module to loader: %s", module.getIdentifier());
             serviceTarget.addService(moduleServiceName, new ValueService<Module>(new ImmediateValue<Module>(module))).install();
         }
     }
