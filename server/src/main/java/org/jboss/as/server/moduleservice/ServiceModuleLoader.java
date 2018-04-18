@@ -22,6 +22,7 @@
 package org.jboss.as.server.moduleservice;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import org.jboss.as.server.Bootstrap;
 import org.jboss.as.server.ServerLogger;
@@ -127,12 +128,28 @@ public class ServiceModuleLoader extends ModuleLoader implements Service<Service
                 return moduleSpec;
             if (startException != null)
                 throw new ModuleLoadException(startException.getCause());
+            boolean success = false;
             try {
-                ServiceController<ModuleSpec> controller = (ServiceController<ModuleSpec>) serviceContainer.getService(moduleSpecServiceName(identifier));
-                ValueService<ModuleSpec> service = (ValueService<ModuleSpec>) controller.getService();
-                moduleSpec = service.getValueInternal();
-            } catch (Exception e) {
-                throw new ModuleLoadException(e);
+                log.tracef("waiting for: %s in %s", identifier, this);
+                if (latch.await(2000, TimeUnit.MILLISECONDS)) {
+                    success = true;
+                }
+                else {
+                    Exception ex = ServerMessages.MESSAGES.timeoutWaitingForModuleService(identifier);
+                    log.infof("waiting unsuccessful for %s from %s, trying to obtain directly. %s", identifier, this, ex);
+                }
+            } catch (InterruptedException e) {
+                // ignore
+            }
+            if (!success) {
+                // see AS7-5163 trying to obtain value directly
+                try {
+                    ServiceController<ModuleSpec> controller = (ServiceController<ModuleSpec>) serviceContainer.getService(moduleSpecServiceName(identifier));
+                    ValueService<ModuleSpec> service = (ValueService<ModuleSpec>) controller.getService();
+                    moduleSpec = service.getValueInternal();
+                } catch (Exception e) {
+                    throw new ModuleLoadException(e);
+                }
             }
             return moduleSpec;
         }

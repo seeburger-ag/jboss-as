@@ -40,6 +40,7 @@ import org.jboss.logging.MessageBundle;
 import org.jboss.logging.Messages;
 import org.jboss.logging.Param;
 import org.jboss.modules.ModuleIdentifier;
+import org.jboss.modules.ModuleLoadException;
 import org.jboss.msc.service.ServiceName;
 import org.jboss.msc.service.StartException;
 import org.jboss.vfs.VirtualFile;
@@ -260,7 +261,7 @@ public interface ServerMessages {
     @Message(id = 15816, value = "Missing configuration value for: %s")
     IllegalStateException missingHomeDirConfiguration(String propertyName);
 
-    @Message(id = 15817, value = "\n        %s is missing: %s")
+    @Message(id = 15817, value = "%n        %s is missing: %s")
     String missingDependencies(ServiceName dependentService, String missingDependencies);
 
     @Message(id = 15818, value = "%s is required")
@@ -417,6 +418,9 @@ public interface ServerMessages {
     @Message(id = 18716, value = "Could not create server base directory: %s")
     IllegalStateException couldNotCreateServerBaseDirectory(File file);
 
-    @Message(id = 18717, value = "No deployment content with hash %s is available in the deployment content repository for deployment '%s'. This is a fatal boot error. To correct the problem, either restart with the --admin-only switch set and use the CLI to install the missing content or remove it from the configuration, or remove the deployment from the xml configuraiton file and restart..")
+    @Message(id = 18717, value = "No deployment content with hash %s is available in the deployment content repository for deployment '%s'. This is a fatal boot error. To correct the problem, either restart with the --admin-only switch set and use the CLI to install the missing content or remove it from the configuration, or remove the deployment from the xml configuraiton file and restart.")
     OperationFailedException noSuchDeploymentContentAtBoot(String contentHash, String deploymentName);
+
+    @Message(id = 18760, value = "Timeout waiting for module service: %s")
+    ModuleLoadException timeoutWaitingForModuleService(ModuleIdentifier module);
 }
