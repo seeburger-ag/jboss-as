@@ -131,7 +131,7 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
             else{
                 moduleSpecAlias = (String)((ValueService<?>)moduleSpecAliasController.getService()).getValueInternal();
             }
-            ROOT_LOGGER.infof("found SEEBURGER alias '%s' for module identifier '%s'",
+            ROOT_LOGGER.debugf("found SEEBURGER alias '%s' for module identifier '%s'",
                               moduleSpecAlias, targetIdentifier.toString());
             ModuleIdentifier aliasIdentifier = ModuleIdentifier.create(moduleSpecAlias);
             addModuleSpec(ModuleSpec.buildAlias(aliasIdentifier, targetIdentifier).create());
@@ -141,7 +141,7 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
 
     private void addModuleSpec(final ModuleSpec moduleSpec){
         ModuleIdentifier identifier = moduleSpec.getModuleIdentifier();
-        ROOT_LOGGER.infof("Add module spec to loader: %s", identifier);
+        ROOT_LOGGER.debugf("Add module spec to loader: %s", identifier);
 
         ServiceName moduleSpecName = ServiceModuleLoader.moduleSpecServiceName(identifier);
 
@@ -227,7 +227,7 @@ final class ModuleLoaderIntegration extends ModuleLoader implements ModuleLoader
             ServiceName seeburgerAliasServiceName = getSeeburgerAliasServiceName(identifier);
             if( null == serviceContainer.getService(seeburgerAliasServiceName)){
                 String moduleSpecAlias = MODULE_PREFIX + bundle.getLocation();
-                ROOT_LOGGER.infof("added '%s' with content '%s'", seeburgerAliasServiceName, moduleSpecAlias);
+                ROOT_LOGGER.debugf("added '%s' with content '%s'", seeburgerAliasServiceName, moduleSpecAlias);
                 serviceTarget.addService(seeburgerAliasServiceName,
                                          new ValueService<String>(new ImmediateValue<String>(moduleSpecAlias)))
                              .install();
