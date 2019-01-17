@@ -383,7 +383,7 @@
         </module-def>
 
         <module-def name="javax.jms.api">
-            <maven-resource group="org.jboss.spec.javax.jms" artifact="jboss-jms-api_1.1_spec"/>
+            <maven-resource group="javax.jms" artifact="javax.jms-api"/>
         </module-def>
 
         <module-def name="javax.jws.api">
