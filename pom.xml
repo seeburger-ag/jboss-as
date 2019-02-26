@@ -166,7 +166,7 @@
         <version.org.jboss.ironjacamar>1.0.9.Final</version.org.jboss.ironjacamar>
         <version.org.jboss.ironjacamar.core-impl>1.0.9.SEE7</version.org.jboss.ironjacamar.core-impl>
         <version.org.jboss.ironjacamar.jdbc>1.0.9.SEE7</version.org.jboss.ironjacamar.jdbc>
-        <version.org.jboss.jandex>1.2.4.Final</version.org.jboss.jandex>
+        <version.org.jboss.jandex>1.2.5.SEE1</version.org.jboss.jandex>
         <version.org.jboss.jboss-dmr>1.1.1.Final</version.org.jboss.jboss-dmr>
         <version.org.jboss.jboss-transaction-spi>7.0.0.Final</version.org.jboss.jboss-transaction-spi>
         <version.org.jboss.jbossts.jbossjts>4.16.6.SEE7</version.org.jboss.jbossts.jbossjts>
