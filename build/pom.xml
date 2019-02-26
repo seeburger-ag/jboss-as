@@ -86,7 +86,7 @@
                     <dependency>
                         <groupId>org.jboss</groupId>
                         <artifactId>jandex</artifactId>
-                        <version>${version.org.jboss.jandex}</version>
+                        <version>1.2.4.Final</version><!-- need original version here -->
                     </dependency>
                     <dependency>
                         <groupId>org.apache.ant</groupId>
