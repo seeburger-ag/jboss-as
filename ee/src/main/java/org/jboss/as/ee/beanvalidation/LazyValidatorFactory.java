@@ -135,20 +135,17 @@ public class LazyValidatorFactory implements ValidatorFactory {
     }
 
     @Override
-    public ParameterNameProvider getParameterNameProvider()
-    {
-        return null;
+    public ParameterNameProvider getParameterNameProvider() {
+        return getDelegate().getParameterNameProvider();
     }
 
     @Override
-    public ClockProvider getClockProvider()
-    {
-        return null;
+    public ClockProvider getClockProvider() {
+        return getDelegate().getClockProvider();
     }
 
     @Override
-    public void close()
-    {
+    public void close() {
         getDelegate().close();
     }
 }
