@@ -24,9 +24,11 @@ package org.jboss.as.ee.beanvalidation;
 import java.util.Collections;
 import java.util.List;
 
+import javax.validation.ClockProvider;
 import javax.validation.Configuration;
 import javax.validation.ConstraintValidatorFactory;
 import javax.validation.MessageInterpolator;
+import javax.validation.ParameterNameProvider;
 import javax.validation.TraversableResolver;
 import javax.validation.Validation;
 import javax.validation.ValidationProviderResolver;
@@ -130,5 +132,23 @@ public class LazyValidatorFactory implements ValidatorFactory {
         public List<ValidationProvider<?>> getValidationProviders() {
             return Collections.<ValidationProvider<?>>singletonList(new HibernateValidator());
         }
+    }
+
+    @Override
+    public ParameterNameProvider getParameterNameProvider()
+    {
+        return null;
+    }
+
+    @Override
+    public ClockProvider getClockProvider()
+    {
+        return null;
+    }
+
+    @Override
+    public void close()
+    {
+        getDelegate().close();
     }
 }
