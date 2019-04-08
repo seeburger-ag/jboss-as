@@ -24,8 +24,10 @@ package org.jboss.as.jpa.validator;
 import java.util.Collections;
 import java.util.List;
 
+import javax.validation.ClockProvider;
 import javax.validation.ConstraintValidatorFactory;
 import javax.validation.MessageInterpolator;
+import javax.validation.ParameterNameProvider;
 import javax.validation.TraversableResolver;
 import javax.validation.Validation;
 import javax.validation.ValidationProviderResolver;
@@ -113,5 +115,20 @@ public class JPALazyValidatorFactory implements ValidatorFactory {
         public List<ValidationProvider<?>> getValidationProviders() {
             return Collections.<ValidationProvider<?>>singletonList(new HibernateValidator());
         }
+    }
+
+    @Override
+    public ParameterNameProvider getParameterNameProvider() {
+        return getDelegate().getParameterNameProvider();
+    }
+
+    @Override
+    public ClockProvider getClockProvider() {
+        return getDelegate().getClockProvider();
+    }
+
+    @Override
+    public void close() {
+        getDelegate().close();
     }
 }
