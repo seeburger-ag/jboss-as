@@ -181,7 +181,7 @@
         <!-- Needed for @Resource(lookup=). -->
         <dependency>
             <groupId>org.jboss.spec.javax.annotation</groupId>
-            <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+            <artifactId>jboss-annotations-api_1.3_spec</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
@@ -263,7 +263,7 @@
             </plugin>
 
             <!--
-                Provide jboss-annotations-api_1.2_spec to compiler as endorsed.
+                Provide jboss-annotations-api_1.3_spec to compiler as endorsed.
                 Big complex hack just to get @Resource(lookup="foo").  AS7-3123
             -->
             <plugin>
@@ -278,7 +278,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>org.jboss.spec.javax.annotation</groupId>
-                                    <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+                                    <artifactId>jboss-annotations-api_1.3_spec</artifactId>
                                 </artifactItem>
                             </artifactItems>
                             <outputDirectory>${project.build.directory}/endorsed</outputDirectory>
