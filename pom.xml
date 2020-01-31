@@ -98,7 +98,8 @@
         <version.javax.faces.jsf-impl.1.2>1.2_15-jbossorg-2</version.javax.faces.jsf-impl.1.2>
         <version.javax.inject.javax.inject>1</version.javax.inject.javax.inject>
         <version.javax.jws.jsr181-api>1.0-MR1</version.javax.jws.jsr181-api>
-        <version.javax.mail>1.4.7.SEE5</version.javax.mail>
+        <version.javax.mail>1.4.7.SEE5</version.javax.mail> <!-- only compile version -->
+        <version.jakarta.mail>1.6.4</version.jakarta.mail> <!-- runtime version -->
         <version.javax.validation>1.0.0.GA</version.javax.validation>
         <version.jaxen>1.1.3</version.jaxen>
         <version.jboss.jaxbintros>1.0.2.GA</version.jboss.jaxbintros>

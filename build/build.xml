@@ -395,7 +395,7 @@
         </module-def>
 
         <module-def name="javax.mail.api">
-            <maven-resource group="javax.mail" artifact="mail"/>
+            <maven-resource group="com.sun.mail" artifact="jakarta.mail"/>
         </module-def>
 
         <module-def name="javax.persistence.api">
