@@ -28,12 +28,12 @@
     <parent>
         <groupId>com.seeburger.as</groupId>
         <artifactId>jboss-as-parent</artifactId>
-        <version>7.1.1.SEE154-SNAPSHOT</version>
+        <version>7.1.1.SEE154</version>
     </parent>
 
     <groupId>com.seeburger.as</groupId>
     <artifactId>jboss-as-jacorb</artifactId>
-    <version>7.1.1.SEE154-SNAPSHOT</version>
+    <version>7.1.1.SEE154</version>
     <packaging>jar</packaging>
 
     <name>JBoss Application Server: JacORB Subsystem</name>
