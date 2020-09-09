@@ -109,7 +109,7 @@
         <version.log4j>1.2.17</version.log4j>
         <version.net.jcip>1.0</version.net.jcip>
         <version.net.sourceforge.cssparser>0.9.5</version.net.sourceforge.cssparser>
-        <version.net.sourceforge.htmlunit>2.8</version.net.sourceforge.htmlunit>
+        <version.net.sourceforge.htmlunit>2.43.0</version.net.sourceforge.htmlunit>
         <version.net.sourceforge.nekohtml>1.9.14</version.net.sourceforge.nekohtml>
         <version.org.apache.ant>1.10.1</version.org.apache.ant>
         <version.org.apache.cxf>2.4.9</version.org.apache.cxf>
