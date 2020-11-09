@@ -419,7 +419,7 @@
         </module-def>
 
         <module-def name="javax.servlet.api">
-            <maven-resource group="org.jboss.spec.javax.servlet" artifact="jboss-servlet-api_3.0_spec"/>
+            <maven-resource group="org.jboss.spec.javax.servlet" artifact="jboss-servlet-api_3.1_spec"/>
         </module-def>
 
         <module-def name="javax.servlet.jsp.api">
