@@ -202,7 +202,7 @@
         <version.org.jboss.security.jboss-negotiation>2.2.0.SP1</version.org.jboss.security.jboss-negotiation>
         <version.org.jboss.security.jbossxacml>2.0.6.Final</version.org.jboss.security.jbossxacml>
         <version.org.jboss.shrinkwrap.shrinkwrap>1.0.0-cr-1</version.org.jboss.shrinkwrap.shrinkwrap>
-        <version.org.jboss.shrinkwrap.resolver>1.0.0-beta-5</version.org.jboss.shrinkwrap.resolver>
+        <version.org.jboss.shrinkwrap.resolver>2.2.3</version.org.jboss.shrinkwrap.resolver>
         <version.org.jboss.slf4j.slf4j-jboss-logmanager>1.0.0.GA</version.org.jboss.slf4j.slf4j-jboss-logmanager>
         <version.org.jboss.logging.jul-to-slf4j-stub>1.0.0.Final</version.org.jboss.logging.jul-to-slf4j-stub>
         <!-- Include the artifactId for org.jboss.spec project versions because artifactId contains the API spec version -->
@@ -279,7 +279,7 @@
 
 
         <!-- Surefire args -->
-        <surefire.jpda.args />
+        <surefire.jpda.args/>
         <surefire.system.args>-da ${surefire.jpda.args}</surefire.system.args>
 
         <!-- Checkstyle configuration -->
@@ -411,7 +411,7 @@
                         <configLocation>jboss-as-checkstyle/checkstyle.xml</configLocation>
                         <consoleOutput>true</consoleOutput>
                         <failsOnError>true</failsOnError>
-                        <useFile />
+                        <useFile/>
                     </configuration>
                     <dependencies>
                         <dependency>
@@ -553,7 +553,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -570,7 +570,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -587,7 +587,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -606,7 +606,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -626,7 +626,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -645,7 +645,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -667,7 +667,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                                 <pluginExecution>
@@ -688,7 +688,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
